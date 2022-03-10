@@ -22,12 +22,17 @@ void		Fight(INFO* pPlayer, INFO* pMonster);
 
 void main(void)
 {
-	INFO	tPlayer = { "" };
+	INFO	tPlayer = {""};
+	INFO* Player = &tPlayer;
+	INFO* IP = new INFO;
+	Player = IP;
+
+	
 	//tPlayer = SelectJob();
 
-	SelectJob(&tPlayer);
+	SelectJob(Player);
 
-	if (false == tPlayer.bLive)
+	if (false == Player->bLive)
 		return;
 
 	int	iInput = 0;
@@ -36,17 +41,19 @@ void main(void)
 	{
 		system("cls");
 
-		Render(&tPlayer);
+		Render(Player);
 		cout << "1. 사냥터 2. 종료 : ";
 		cin >> iInput;
 
 		switch (iInput)
 		{
 		case 1:
-			Field(&tPlayer);
+			Field(Player);
 			break;
 
 		case 2:
+			delete IP;
+			IP = nullptr;
 			return;
 
 		default:
@@ -163,6 +170,11 @@ void		Field(INFO* pPlayer)
 	int iInput = 0;
 
 	INFO	tMonster[3] = {};
+	INFO* m = new INFO;
+	INFO* Monster = &tMonster[iInput - 1];
+	Monster = m;
+
+	
 
 	while (true)
 	{
@@ -177,8 +189,8 @@ void		Field(INFO* pPlayer)
 
 		else if (3 >= iInput && iInput > 0)
 		{
-			CreateMonster(&tMonster[iInput - 1], iInput);
-			Fight(pPlayer, &tMonster[iInput - 1]);
+			CreateMonster(Monster, iInput);
+			Fight(pPlayer, Monster);
 		}
 
 	}
