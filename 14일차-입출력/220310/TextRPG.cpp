@@ -26,8 +26,9 @@ void main(void)
 	INFO* Player = &tPlayer;
 	INFO* IP = new INFO;
 	Player = IP;
-
 	
+	
+
 	//tPlayer = SelectJob();
 
 	SelectJob(Player);
@@ -218,6 +219,7 @@ void CreateMonster(INFO* pMonster, int _iInput)
 		pMonster->iAttack = 90;
 		pMonster->iHp = 80;
 		break;
+			
 	}
 }
 void		Fight(INFO* pPlayer, INFO* pMonster)
@@ -254,9 +256,6 @@ void		Fight(INFO* pPlayer, INFO* pMonster)
 				break;
 			}		
 		}
-
 	}
-
 	system("pause");
-
 }
