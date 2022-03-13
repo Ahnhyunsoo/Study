@@ -1,8 +1,3 @@
-﻿  TextRPG.cpp
-c:\users\ahs\documents\visual studio 2015\projects\20220311과제\20220311과제\textrpg.cpp(2): warning C4067: 전처리기 지시문 다음에 예기치 않은 토큰이 있습니다. 줄 바꿈 문자가 필요합니다.
-c:\users\ahs\documents\visual studio 2015\projects\20220311과제\20220311과제\textrpg.cpp(60): warning C4101: 'Info' :참조되지 않은 지역 변수입니다.
-c:\users\ahs\documents\visual studio 2015\projects\20220311과제\20220311과제\textrpg.cpp(186): warning C4101: 'c' :참조되지 않은 지역 변수입니다.
-c:\users\ahs\documents\visual studio 2015\projects\20220311과제\20220311과제\textrpg.cpp(205): warning C4101: 'c' :참조되지 않은 지역 변수입니다.
-c:\users\ahs\documents\visual studio 2015\projects\20220311과제\20220311과제\textrpg.cpp(241): warning C4101: 'monster' :참조되지 않은 지역 변수입니다.
-  20220311과제.vcxproj -> C:\Users\ahs\Documents\Visual Studio 2015\Projects\20220311과제\Debug\20220311과제.exe
-  20220311과제.vcxproj -> C:\Users\ahs\Documents\Visual Studio 2015\Projects\20220311과제\Debug\20220311과제.pdb (Partial PDB)
+﻿  이미지.cpp
+  20220311과제.vcxproj -> C:\Users\ahs\Desktop\JusinGit\20220311과제\Debug\20220311과제.exe
+  20220311과제.vcxproj -> C:\Users\ahs\Desktop\JusinGit\20220311과제\Debug\20220311과제.pdb (Partial PDB)
