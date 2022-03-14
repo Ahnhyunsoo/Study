@@ -1,0 +1,30 @@
+구조체 = 사용자 정의함수
+여러가지 변수를 한군데 모아 관리하는 함수
+
+문자열 길이 반환 함수
+size_t strlen(char const* pstr); = null 문자를 제외한 순수한 문자열의 길이를 반환하는 함수
+ex ) char szName[64] = "Hello";
+cout << strlen(szName) << endl; = 5;
+
+문자열 복사 함수
+char szTemp[64] = "asdjlkqjwfjqw";
+char szSour[64] = "Hello";
+szTemp = "Hello"; = 문자열은 상수이므로 대입 불가능
+
+int strcpy_s(char* _Destination, rsize_t _SizeInBytes, char const* _Source);
+1인자 = 어디에 복사할것인가 | 2인자 = 얼마만큼의 크기 공간에 복사할 것인가 | 3인자 = 복사하고자하는 원본 문자열
+
+ex) strcpy_s(szTemp, sizeof(szTemp), szSour);
+
+문자열 결합 함수
+
+char szSour[64] = "Hello";
+char szTemp[64] = "World";
+
+errno_t strcat_s(szTemp, sizeof(szTemp), szSour)
+1인자 = 어디에 결합할것인가 | 2인자 = 얼마만큼의 크기 공간에 결합할 것인가 | 3인자 = 결합하고자 하는 원본 문자열
+strcat_s(szSour, sizeof(szSour), szTemp);
+
+문자열 비교 함수
+strcmp
+strcmp(str1,str2) 일치하면 false반환 불일치하면 true반환 때문에 사람이 보기편하게 쓰려면 !(not연산자를 붙여서 사용해야한다)

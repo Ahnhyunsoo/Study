@@ -1,0 +1,54 @@
+자료형에는 기본자료형과 사용자 자료형이 있다.
+기본 자료형 = char int float double 등등
+사용자 정의 자료형 = 구조체struct, 열거체enum, 공용체union
+
+구조체 = 여러가지 자료형을 한군데 모아 관리하는 사용자 정의 자료형
+구조체의 크기
+구조체는 구조체 내의 가장큰 변수의 메모리를 할당한다. (사용자정리자료형은 제외, 기본자료형으로 할당)
+
+struct tagInfo
+{
+	int a;
+	char c;
+	float f;
+	double;     이 자료형의 크기는 4 1 4 8 	17 / 24
+	데이터 관리법
+};
+
+void main(void)
+{
+	tagInfo tinfo;
+	tinfo.a = 10;
+}
+
+열거체 = 사용자가 정의한 변수에 번호를 매겨 별명을 지정해주는 사용자 정의 자료형
+
+enum Num
+{
+"사람" = 1, "동물" = 2, "물건" = 3
+};
+
+공용체 = 구조체처럼 여러가지 자료형을 한군데 모아 관리하는 사용자 정의 자료형 (구조체와의 차이점은 공용체는 가장큰 자료형의 크기를 공용체의 크기로 갖는다.)
+
+union uni
+{
+	int a;
+	char c;
+	float f;  이 공용체의 크기는 4바이트
+};
+
+
+동적 할당
+
+c시절 선언 방식
+calloc = int* calloc(size_t Count, size_t Size);
+malloc = int* malloc(size_t size)
+
+malloc과 calloc의 차이점 = 인자의 갯수가 다르다, calloc의 경우 할당안 힙공간을 0초기화를 진행한다.
+할당한 메모리를 반환하는 함수 = free
+
+c++ 선언 방식
+new
+int* p = new int;
+할당된 메모리를 반환하는 함수 = delete
+할당할때 배열로 선언했으면 반환도 배열로 해야한다. ex) int* p = new int[3]  -> delete[]

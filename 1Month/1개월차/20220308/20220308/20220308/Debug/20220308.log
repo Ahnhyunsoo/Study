@@ -1,0 +1,3 @@
+﻿  동적할당.cpp
+c:\users\ahs\documents\visual studio 2015\projects\1개월차\20220308\20220308\동적할당.cpp(31): error C2883: 'calloc': 함수 선언이 using 선언에 의해 정의된 'calloc'과(와) 충돌합니다.
+  c:\program files (x86)\windows kits\10\include\10.0.10240.0\ucrt\corecrt_malloc.h(62): note: 'calloc' 선언을 참조하십시오.

@@ -1,0 +1,35 @@
+20220223 복습
+
+
+난수 구하는 또다른 함수
+<random>
+
+random_device 변수명;
+mt19937 변수명(랜덤디바이스변수명());
+uniform_int_distribution<int> 변수명(~ , ~)
+
+
+random_device random;
+mt19937 rd(random());
+uniform_int_distribution<int> range(1,100)  1부터 100까지 균등분포
+
+이중for문 ex 구구단
+
+별찍기과제 (규칙찾기) ex)
+
+*
+**
+***
+****
+*****
+
+0,0
+1,0 1,1
+2,0 2,1 2,2
+3,0 3,1 3,2 3,3
+4,0 4,1 4,2 4,3 4,4
+5,0 5,1 5,2 5,3 5,4 5,5
+
+규칙
+i 는 j 이상이다
+i와 j는 1씩 증가한다
