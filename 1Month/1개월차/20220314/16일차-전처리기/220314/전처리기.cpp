@@ -48,7 +48,6 @@ void main(void)
 
 #pragma region 조건부 컴파일
 
-
 /*
 #if(조건) : if문의 시작과 동일한 기능
 #elif(조건) : elseif문과 동일
