@@ -69,9 +69,13 @@ void main(void)
 	cout << iTest << endl;*/
 
 
+0
 	/*int		iInput = 0;
 
 	cin >> iInput;
-	cout << iInput << endl;*/
+	cou
+
+	
+	t << iInput << endl;*/
 
 }

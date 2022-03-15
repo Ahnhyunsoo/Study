@@ -1,5 +1,5 @@
 #pragma region 전처리기
-
+#define Func(X) ((X) * (X))
 /*
 #include <iostream>
 
@@ -88,6 +88,7 @@ using namespace std;
 
 void main(void)
 {
+	cout << Func(2 + 2) << endl;
 /*
 #ifdef _DEBUG
 	cout << "Hello" << endl;
