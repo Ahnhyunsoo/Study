@@ -10,7 +10,9 @@ void main(void)
    //  iArray : 배열의 이름	[] : 인덱스 연산자, 3 : 배열의 개수
 
 	int		iArray[3] = { 1, 2, 3  };	// 블록 단위 데이터
+	int aArray[2] = { 4,5 };
 
+	cout << iArray[2] + aArray[1] << endl;
 	// 0. 배열의 이름은 배열 전체 메모리의 첫 번째 주소 값이다.
     // 1. 배열의 특징 : 연속된 메모리 공간에 저장이 된다.
 	// 2. 배열을 선언할 때 []연산자 반드시 상수를 사용해야 한다.
@@ -31,7 +33,7 @@ void main(void)
 
 	//cout << iArray[1] + iArray[2] << endl;
 
-	cout << sizeof(iArray) / sizeof(int) << endl;
+	//cout << sizeof(iArray) / sizeof(int) << endl;
 
 
 }

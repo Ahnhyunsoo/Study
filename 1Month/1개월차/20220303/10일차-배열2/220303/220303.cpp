@@ -32,20 +32,20 @@ void main(void)
 
 	// cout << iArray[1][1] << endl;
 
-	cout << (*(iArray + 1))[1] << endl;
+	/*cout << (*(iArray + 1))[1] << endl;
 	cout << *(iArray[1] + 1) << endl;
-	cout << *((*(iArray + 1)) + 1) << endl;
+	cout << *((*(iArray + 1)) + 1) << endl;*/
 
 
 	// 2차원 배열의 포인터 형
-	// int**	p = iArray;	// 2차원 배열의 이름은 2중 포인터에 보관할 수 없다. 싱글포인터도 이중포인터도 아니다.
+		// 2차원 배열의 이름은 2중 포인터에 보관할 수 없다. 싱글포인터도 이중포인터도 아니다.
 
-	// 자료형(*변수명)[열] 선언
-	// int(*pArray)[3] = iArray;
-	// cout << pArray[1][1] << endl;
+	 //자료형(*변수명)[열] 선언
+	 int(*pArray)[3] = iArray;
+	 //cout << pArray[1][2] << endl;
 
-	// int*		p = iArray[0];
-	// cout << p[1] << endl;
+	 int*		p = iArray[0];
+	 cout << p[1] << endl;
 }
 
 // 1. 2차원 배열을 이용하여 90도 시계방향으로 4회전하여 출력하기
