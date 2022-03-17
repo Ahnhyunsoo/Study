@@ -51,6 +51,10 @@ void main(void)
 #pragma region 연산자
 
 	// 산술 연산자(+, -, *, /, %)
+	int a = 10;
+	int b = 2;
+	if (a % b != 0)
+
 
 	// int		iTemp = 10 + 20;
 	// cout << iTemp << endl;

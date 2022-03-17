@@ -1,6 +1,9 @@
 #include <iostream>
 #include <bitset>
 
+
+
+
 using namespace std;
 
 void main(void)

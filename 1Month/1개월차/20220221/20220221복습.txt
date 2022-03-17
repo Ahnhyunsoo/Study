@@ -50,3 +50,4 @@ switch(iNum)
 	defalut :
 	cout << "정수를 입력해주세요";
 } 
+..

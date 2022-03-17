@@ -4,8 +4,11 @@ using namespace std;
 
 void main(void)
 {
-	// 상수 : 사회 구성원들의 결정 하에 변하지 않는 숫자고 약속해 놓은 것
+	/*int sjw = 10;
 
+	cout << sjw << endl;*/
+	// 상수 : 사회 구성원들의 결정 하에 변하지 않는 숫자고 약속해 놓은 것
+	
 	// 리터럴 상수 :  10, 'A'
 	// 심볼릭 상수 : 프로그램 코드에 의해서 문법적으로 상수화되어진 숫자를 의미 (ex) #define, const, enum
 
@@ -18,8 +21,11 @@ void main(void)
 
 	// 정수 타입 : short(2byte), int(4byte), long(4byte), longlong(8byte)
 	// 실수 타입 : float(4byte), double(8byte), (long double(8byte))
-	// 글자 타입 : char
-	// 논리 타입 : bool
+	// 글자 타입 : char 'A' 'B' 'C'   글자 1개씩 'A' 'ABC'
+	// 논리 타입 : bool 값이 있으면 참 없으면 거짓 
+	
+	
+
 
 	// 컴퓨터의 기본적인 용량 단위
 
@@ -50,9 +56,27 @@ void main(void)
 	//double		dTest = 0.0;
 	//cout << dTest << endl;
 
+	/*char name = 'A';
+	char name2 = 'B';
+	
+	cout << name + name2 << endl;*/
+		
+
 	// 문자 타입 자료형 : 아스키 코드표와 연동되어 0~127번에 해당하는 문자 값을 사용할 수 있다.
 	// 아스키코드에 존재하는 단 한 글자만 저장할 수 있는 1byte 용량을 가지고 있다.
 	
+		0101010
+		char 'A' 65 << 1byte 8bit
+		00000010 10 1 2
+		00100010 2 34
+		11111111
+		0~255 255
+		1byte = 8bit
+		1kbyte
+		1024byte
+		1m 
+		1024kb
+
 	// char cName = 'a';
 	// cout << cName << endl;
 
@@ -69,13 +93,13 @@ void main(void)
 	cout << iTest << endl;*/
 
 
-0
-	/*int		iInput = 0;
+	0
+		/*int		iInput = 0;
 
-	cin >> iInput;
-	cou
+		cin >> iInput;
+		cou
 
-	
-	t << iInput << endl;*/
 
+		t << iInput << endl;*/
+		;
 }
