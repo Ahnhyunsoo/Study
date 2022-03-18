@@ -65,17 +65,7 @@ void main(void)
 	// 문자 타입 자료형 : 아스키 코드표와 연동되어 0~127번에 해당하는 문자 값을 사용할 수 있다.
 	// 아스키코드에 존재하는 단 한 글자만 저장할 수 있는 1byte 용량을 가지고 있다.
 	
-		0101010
-		char 'A' 65 << 1byte 8bit
-		00000010 10 1 2
-		00100010 2 34
-		11111111
-		0~255 255
-		1byte = 8bit
-		1kbyte
-		1024byte
-		1m 
-		1024kb
+		
 
 	// char cName = 'a';
 	// cout << cName << endl;
@@ -101,5 +91,5 @@ void main(void)
 
 
 		t << iInput << endl;*/
-		;
+		
 }
