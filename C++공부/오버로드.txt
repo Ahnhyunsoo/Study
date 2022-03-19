@@ -1,0 +1,7 @@
+반환값만 다른 함수는 오버로드가 불가능하다.
+디폴트 매개변수는 오른쪽부터 채워줘야한다.
+오버로드의 우선순위
+1. 정확하게 일치하는경우 (Exact Match)
+2. 승진에 의한 형변환(Promotion)
+3. 표준 형변환(Standard Conversions)
+4. 사용자에 의한 형변환 (User Define Conversions)
