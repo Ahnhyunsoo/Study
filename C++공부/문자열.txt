@@ -1,0 +1,3 @@
+char* 
+char 둘다 주소를 넘길 수 있다.
+String을 사용
