@@ -1,0 +1,9 @@
+﻿  성적관리프로그램.cpp
+  Machine.cpp
+c:\users\ahs\desktop\jusin\2month\2개월차\20220321\20220321과제\20220321과제\machine.cpp(69): error C2065: 'index': 선언되지 않은 식별자입니다.
+c:\users\ahs\desktop\jusin\2month\2개월차\20220321\20220321과제\20220321과제\machine.cpp(69): error C3078: new 식에서는 배열 크기를 지정해야 합니다.
+c:\users\ahs\desktop\jusin\2month\2개월차\20220321\20220321과제\20220321과제\machine.cpp(70): error C2143: 구문 오류: ';'이(가) 'if' 앞에 없습니다.
+c:\users\ahs\desktop\jusin\2month\2개월차\20220321\20220321과제\20220321과제\machine.cpp(73): error C2065: 'index': 선언되지 않은 식별자입니다.
+  코드를 생성하고 있습니다...
+  건너뛰고 있습니다... (관련된 변경 내용 없음)
+  Student.cpp
