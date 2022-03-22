@@ -1,5 +1,6 @@
 #pragma once
 #include "stdafx.h"
+#include "Machine.h"
 
 class CStudent
 {
@@ -9,11 +10,14 @@ class CStudent
 	int m_iMath;
 	int m_iSum;
 	float m_fAvg;
-
+	
 public:
 	void InputStudent();
 	void PrintAll();
 	int Search(string Search);
+	
+	CStudent();
+	~CStudent();
 
 };
 

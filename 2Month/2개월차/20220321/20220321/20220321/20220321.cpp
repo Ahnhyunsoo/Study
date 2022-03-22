@@ -66,16 +66,16 @@ public:
 //변수는 private 함수는 public으로 한다.
 };
 
-int main()
-{
+//int main()
+//{
 	/*tagInfo tInfo;
 	tInfo.m_iA = 100;
 	cout << tInfo.m_iA << endl;*/
 
-	Cobj obj;
+	/*Cobj obj;
 
 	CPlayer Player;
-	Player.Draw();
+	Player.Draw();*/
 	
 
 	//obj.Set_A(40);
@@ -87,8 +87,8 @@ int main()
 	delete[] pPlayer;
 	pPlayer = nullptr;*/
 
-	return 0;
-}
+	//return 0;
+//}
 // 과제 1. 성적표 프로그램을 클래스로 만들고 동적 배열로 구현하자
 // 학생 3명을 입력받고 추가입력해서 몇명을 더 입력받겠습니까 해서 기존3명과 +2명의 인원까지 다 추가하기
 //3명의 학생정보를 추가로 선언한 배열에 복사한후 기존의 배열은 지운다

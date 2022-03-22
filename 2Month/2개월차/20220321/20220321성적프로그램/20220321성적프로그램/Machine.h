@@ -9,6 +9,6 @@ class CMachine
 
 public :
 	void exe();
-
+	int Get();
 	
 };

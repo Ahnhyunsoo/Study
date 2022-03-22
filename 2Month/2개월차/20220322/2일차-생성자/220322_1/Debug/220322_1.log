@@ -1,0 +1,8 @@
+﻿  stdafx.cpp
+  Temp.cpp
+  Student.cpp
+c:\users\ahs\desktop\jusin\2month\2개월차\20220322\2일차-생성자\220322_1\student.cpp(12): error C2084: 'CStudent::CStudent(void)' 함수에 이미 본문이 있습니다.
+  c:\users\ahs\desktop\jusin\2month\2개월차\20220322\2일차-생성자\220322_1\student.cpp(4): note: '{ctor}'의 이전 정의를 참조하십시오.
+  MainGame.cpp
+  220322_1.cpp
+  코드를 생성하고 있습니다...

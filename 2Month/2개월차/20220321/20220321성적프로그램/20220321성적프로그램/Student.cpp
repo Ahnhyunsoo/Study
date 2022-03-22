@@ -11,6 +11,7 @@ void CStudent::InputStudent()
 	cin >> m_iMath;
 	cout << m_sName << "의 수학 점수 : ";
 	cin >> m_iEnglish;	
+
 }
 
 void CStudent::PrintAll()
@@ -34,3 +35,4 @@ int CStudent::Search(string Search)
 	}
 
 }
+

@@ -1,4 +1,3 @@
-﻿  20220321.cpp
-c:\users\ahs\desktop\jusin\2month\20220321\20220321\20220321\20220321.cpp(75): warning C4101: 'obj' :참조되지 않은 지역 변수입니다.
-  20220321.vcxproj -> C:\Users\ahs\Desktop\jusin\2Month\20220321\20220321\Debug\20220321.exe
-  20220321.vcxproj -> C:\Users\ahs\Desktop\jusin\2Month\20220321\20220321\Debug\20220321.pdb (Full PDB)
+﻿  이중포인터 예시.cpp
+  20220321.vcxproj -> C:\Users\ahs\Desktop\jusin\2Month\2개월차\20220321\20220321\Debug\20220321.exe
+  20220321.vcxproj -> C:\Users\ahs\Desktop\jusin\2Month\2개월차\20220321\20220321\Debug\20220321.pdb (Full PDB)

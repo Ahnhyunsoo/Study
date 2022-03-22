@@ -21,6 +21,7 @@ void CMachine::exe()
 			if (Length == 0)
 			{
 				sp = new CStudent[Length + student];
+				sp = new CStudent[5];
 				for (int i = 0; i < student; ++i)
 				{
 					sp[Length].InputStudent();
@@ -84,5 +85,10 @@ void CMachine::exe()
 		}
 		
 	}
+}
+
+int CMachine::Get()
+{
+	return Length;
 }
 
