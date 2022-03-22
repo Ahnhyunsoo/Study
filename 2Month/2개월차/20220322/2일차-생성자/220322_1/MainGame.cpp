@@ -1,3 +1,4 @@
+
 #include "stdafx.h"
 #include "MainGame.h"
 
@@ -17,8 +18,10 @@ void CMainGame::Update(void)
 {
 	int iInput = 0;
 
+
 	while (true)
 	{
+	
 		cout << "1. 입력 2. 출력 3. 종료 : ";
 		cin >> iInput;
 
@@ -63,3 +66,6 @@ CMainGame::~CMainGame()
 {
 	Release();
 }
+
+
+

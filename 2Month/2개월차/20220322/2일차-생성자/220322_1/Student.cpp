@@ -88,3 +88,24 @@ void CStudent::Output_Data(void)
 		cout << "============================" << endl;
 	}
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

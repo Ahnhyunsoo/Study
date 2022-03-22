@@ -6,6 +6,7 @@
 
 int main()
 {
+
 	CMainGame		MainGame;
 
 	MainGame.Initialize();

@@ -15,3 +15,4 @@ typedef struct tagInfo
 	float		fAver;
 
 }INFO;
+
