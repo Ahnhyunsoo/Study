@@ -6,6 +6,7 @@
 void CSchool::exe()
 {
 	CStudent cs; 
+
 	/*cs.Input();
 	cs.Output();*/
 }
