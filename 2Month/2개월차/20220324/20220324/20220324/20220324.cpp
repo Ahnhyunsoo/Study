@@ -13,15 +13,16 @@ class CObj
 {
 private:
 	const int m_iA;
+	const int m_iB;
 
 
 
 public:
-	void Render(void) { cout << m_iA << endl; }
+	void Render(void) { cout << m_iA << " " << m_iB << endl; }
 
 
 public:
-	CObj() : m_iA(10) // 이니셜라이저를 이용한 초기화 기법
+	CObj() : m_iA(10), m_iB(20) // 이니셜라이저를 이용한 초기화 기법
 	{
 		//m_iA = 10; // 생성된 메모리에 대입을 통한 초기화 
 					//쓰레기값인 상수에 값을 대입하는행위
@@ -72,7 +73,9 @@ public:
 
 int main()
 {
+	CObj obj;
 
+	obj.Render();
 
 
     return 0;

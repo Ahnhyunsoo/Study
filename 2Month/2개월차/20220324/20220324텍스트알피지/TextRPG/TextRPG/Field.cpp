@@ -12,7 +12,7 @@ void Field::SetPlace(int _iA)
 }
 
 
-Field::Field()
+Field::Field() : place(1)
 {
 }
 

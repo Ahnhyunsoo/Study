@@ -9,6 +9,6 @@ public:
 
 
 private:
-	int place = 0;
+	int place;
 };
 

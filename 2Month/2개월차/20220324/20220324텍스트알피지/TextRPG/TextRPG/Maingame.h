@@ -13,6 +13,9 @@ class Maingame
 	
 public:
 	void exe();
+	int Town();
+	int DungeonEntry();
+	void Dungeon();
 	Maingame();
 	~Maingame();
 };

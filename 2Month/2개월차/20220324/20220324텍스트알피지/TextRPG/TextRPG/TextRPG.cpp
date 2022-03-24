@@ -8,6 +8,7 @@ int main()
 {
 	Maingame m;
 	m.exe();
+	
     return 0;
 }
 

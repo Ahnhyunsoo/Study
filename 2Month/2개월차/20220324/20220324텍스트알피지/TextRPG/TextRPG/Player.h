@@ -3,12 +3,17 @@
 #include "define.h"
 class Player
 {
+
 public:
-	void Input();
+	int Input();
 	void Output();
-	PPInfo GetM_PP();
+	int Hp(int Damage);
+	void Die(int Exp);
+
+
 	Player();
 	~Player();
+
 
 
 
