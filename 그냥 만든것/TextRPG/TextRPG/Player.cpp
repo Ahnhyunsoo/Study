@@ -1,5 +1,7 @@
 #include "stdafx.h"
 #include "Player.h"
+#include "Dungeon.h"
+
 string Player::Name()
 {
 	string name;
@@ -7,8 +9,13 @@ string Player::Name()
 	cout << "캐릭터의 이름을 입력하세요 : ";
 	cin >> name;
 	return name;
+	
 }
 
+void Player::in()
+{
+	g = new Dungeon;
+}
 void Player::Knight()
 {
 	m_PA->m_ClassName = "귀검사";
@@ -77,33 +84,9 @@ void Player::Mage()
 void Player::Create()
 {
 	m_PA = new PInfo;
-	int Input = 0;
-	cout << "직업을 선택해주세요" << endl;
-	cout << "1. 귀검사, 2. 격투가, 3. 거너, 4. 마법사 : ";
-	cin >> Input;
-	while (true)
-	{
-		switch (Input)
-		{
-		case 1:
-			Knight();
-			PrintInfo();
-			system("pause");
-		case 2:
-			Fighter();
+	in();
+	g->CreatePlace();
 
-		case 3:
-			Gunner();
-
-		case 4:
-			Mage();
-
-		case 5:
-			cout << "게임을 종료합니다" << endl;
-			SAVE_DELETE(m_PA);
-			exit(0);
-		}
-	}
 }
 
 void Player::PrintInfo()
