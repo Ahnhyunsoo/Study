@@ -11,11 +11,10 @@ int Field::Menu()
 {
 	while (true)
 	{
+		system("cls");
 		int Input = 0;
 		switch (m_iplace)
-		{
-			system("cls");
-			
+		{			
 		case 1:
 			cout << "현재위치 : 세리아방" << endl;
 			Maingame::m_pp->PrintInfo();
@@ -28,7 +27,7 @@ int Field::Menu()
 			}
 			else if (Input == 2)
 			{
-				m_iplace = 3;
+				m_iplace = 5;
 				return 0;
 			}
 			else if (Input == 3)
@@ -38,10 +37,8 @@ int Field::Menu()
 			}
 			else if (Input == 4)
 			{
-				if (m_dp != NULL)
-				{
-					SAVE_DELETE(m_dp);
-				}
+				cout << "게임을 종료합니다" << endl;
+
 				return 1;
 			}
 			else
@@ -65,7 +62,7 @@ int Field::Menu()
 			}
 			else if (Input == 4)
 			{
-				m_iplace = 2;
+				m_iplace = 1;
 				return 0;
 			}
 			continue;
@@ -73,25 +70,57 @@ int Field::Menu()
 		case 3:
 			cout << "현재위치 : 던전입구" << endl;
 			Maingame::m_pp->PrintInfo();
-			cout << "1.초급, 2.중급, 3.상급, 4.마을 : ";
+			m_dp->PrintDungeon();
 			cin >> Input;
-			if (Input >= 1 && Input <= 4)
+			if (Input >= 1 && Input <= 3)
 			{
-				m_iplace = 3;
-				return Input;
+				m_dp->Place(Input);
+				m_iplace = 4;
+				return 0;
+			}
+			else if (Input == 4)
+			{
+				SAVE_DELETE(m_dp);
+				m_iplace = 2;
+				return 0;
 			}
 			continue;
 		
-	
+		case 4:
+			SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), 12);
+			cout << "현재던전 : " << m_dp->GetPlace() << endl << endl;
+			SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), 7);
+			cout << "========================"  << endl;
+			m_dp->CreateM(m_dp->GetPlace());
+			m_dp->PrintInfo();
+			if (m_dp->Battle() == 1)
+			{
+				m_iplace = 3;
+				return 0;
+			}
+
+		case 5:
+			cout << "현재위치 : 상점" << endl;
+			if (m_sp == NULL)
+			{
+				m_sp = new Shop;
+			}
+			if (m_sp->CreateShop() == 1)
+			{
+				SAVE_DELETE(m_sp);
+				m_iplace = 1;
+				return 0;
+			}
+
+			m_sp->PrintShop();
+			system("pause");
+			continue;		
 		}
 	}
 }
 
 
-void Field::SetPlace(int _Place)
-{
-	m_iplace = _Place;
-}
+
 
 Field::Field()
 {

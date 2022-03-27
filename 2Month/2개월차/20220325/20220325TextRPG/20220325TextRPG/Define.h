@@ -26,7 +26,7 @@ public:
 
 typedef struct MonsterInfo
 {
-	const string m_sName;
+	string m_sName;
 	int m_iLevel;
 	int m_iDamage;
 	int m_iMaxHp;

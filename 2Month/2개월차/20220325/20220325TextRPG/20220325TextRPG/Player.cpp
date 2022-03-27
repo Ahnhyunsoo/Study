@@ -56,6 +56,16 @@ int Player::CreatePlayer()
 		m_pp = new PInfo;
 	}
 
+	if (m_ip == NULL)
+	{
+		m_ip = new Inventory[10];
+	}
+
+	for (int i = 0; i < 10; ++i)
+	{
+		m_ip[i].Slot(i+1);
+	}
+
 	while (true)
 	{
 		int Input = 0;
@@ -112,7 +122,7 @@ int Player::Hp(int _Damage)
 	}
 	else
 	{
-		cout << "Hp -" << _Damage << endl;
+		cout << "플레이어 : Hp -" << _Damage << endl;
 		m_pp->m_iNowHp -= _Damage;
 		return 0;
 	}
@@ -121,6 +131,7 @@ int Player::Hp(int _Damage)
 void Player::Die(int _Exp)
 {
 	cout << "사망했습니다" << endl;
+	system("pause");
 	m_pp->m_iNowHp = m_pp->m_iMaxHp;
 	
 	if (m_pp->m_iNowExp <= _Exp)
@@ -134,7 +145,23 @@ void Player::Die(int _Exp)
 
 }
 
-void Player::LevelUp(int Exp)
+int Player::Kill(int _Exp, int _Gold)
+{
+	if (m_pp->m_iNowExp + _Exp >= m_pp->m_iMaxExp)
+	{
+		m_pp->m_iNowExp = 0;
+		m_pp->m_iGold += _Gold;
+		return 1;
+	}
+	else
+	{
+		m_pp->m_iNowExp += _Exp;
+		m_pp->m_iGold += _Gold;
+		return 0;
+	}
+}
+
+void Player::LevelUp()
 {
 	int Point = 3;
 	cout << "레벨업 !!!" << endl;
@@ -145,7 +172,7 @@ void Player::LevelUp(int Exp)
 	m_pp->m_iNowMp = m_pp->m_iMaxMp;
 
 	system("pause");
-	while (Point >= 0)
+	while (Point >= 1)
 	{
 		int Input = 0;
 		system("cls");
@@ -175,6 +202,18 @@ void Player::LevelUp(int Exp)
 			continue;
 		}
 		Point -= 1;
+	}
+}
+
+void Player::PrintInventory()
+{
+	cout << "직업 : " << m_pp->m_sCharacter << endl;
+	cout << "이름 : " << m_pp->m_sName << endl;
+	cout << "소지금 : " << m_pp->m_iGold << endl << endl;
+
+	for (int i = 0; i < 10; ++i)
+	{
+		m_ip[i].PrintInventory();
 	}
 }
 

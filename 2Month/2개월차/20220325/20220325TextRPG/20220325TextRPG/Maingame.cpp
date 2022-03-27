@@ -12,14 +12,15 @@ void Maingame::exe()
 		SAVE_DELETE(m_fp);
 		return;
 	}
-	
-	if (m_fp->Menu() == 1)
+	while (true)
 	{
-		SAVE_DELETE(m_pp);
-		SAVE_DELETE(m_fp);
-		return;
+		if (m_fp->Menu() == 1)
+		{
+			SAVE_DELETE(m_pp);
+			SAVE_DELETE(m_fp);
+			return;
+		}
 	}
-
 	
 }
 
@@ -37,7 +38,7 @@ Maingame::Maingame()
 {
 	m_pp = new Player;
 	m_fp = new Field;
-	m_fp->SetPlace(1);
+
 }
 
 

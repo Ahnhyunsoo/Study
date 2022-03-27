@@ -1,14 +1,15 @@
 #pragma once
 #include "Dungeon.h"
+#include "Shop.h"
 
 class Field
 {
 private:
-	int m_iplace;
+	int m_iplace = 1;
 	Dungeon* m_dp;
+	Shop* m_sp;
 public:
 
-	void SetPlace(int _place);
 	int Menu();
 	Field();
 	~Field();
