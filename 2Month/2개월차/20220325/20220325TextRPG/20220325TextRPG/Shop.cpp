@@ -42,7 +42,15 @@ int Shop::CreateShop()
 
 void Shop::PrintShop()
 {
-	m_ip->PrintItem();
+	int Input = m_ip->PrintItem();
+	if (Input == 1)
+	{
+		m_ip->Buy();
+	}
+	else if(Input == 2)
+	{
+		m_ip->Sell();
+	}
 }
 
 void Shop::DeleteItem()

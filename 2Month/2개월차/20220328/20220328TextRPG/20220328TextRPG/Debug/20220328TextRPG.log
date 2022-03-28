@@ -1,0 +1,4 @@
+﻿  Player.cpp
+c:\users\ahs\desktop\jusin\2month\2개월차\20220328\20220328textrpg\20220328textrpg\player.cpp(121): warning C4390: ';': 제어된 빈 문이 있습니다. 이 문이 필요합니까?
+  20220328TextRPG.vcxproj -> C:\Users\ahs\Desktop\jusin\2Month\2개월차\20220328\20220328TextRPG\Debug\20220328TextRPG.exe
+  20220328TextRPG.vcxproj -> C:\Users\ahs\Desktop\jusin\2Month\2개월차\20220328\20220328TextRPG\Debug\20220328TextRPG.pdb (Full PDB)

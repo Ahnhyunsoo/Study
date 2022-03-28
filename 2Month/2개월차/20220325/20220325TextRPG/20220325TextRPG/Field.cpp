@@ -98,6 +98,7 @@ int Field::Menu()
 				m_iplace = 3;
 				return 0;
 			}
+			break;
 
 		case 5:
 			cout << "현재위치 : 상점" << endl;

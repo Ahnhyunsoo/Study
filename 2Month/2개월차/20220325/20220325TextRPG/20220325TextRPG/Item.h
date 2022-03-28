@@ -7,10 +7,12 @@ private:
 	int m_iStats;
 	
 public:
+	void Buy();
+	void Sell();
 	void Weapon();
 	void Armor();
 	void Utility();
-	void PrintItem();
+	int PrintItem();
 
 
 	Item();

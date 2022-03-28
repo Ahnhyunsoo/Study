@@ -66,6 +66,8 @@ int Player::CreatePlayer()
 		m_ip[i].Slot(i+1);
 	}
 
+
+
 	while (true)
 	{
 		int Input = 0;

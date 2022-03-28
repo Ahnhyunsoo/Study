@@ -64,6 +64,7 @@ int Monster::Hp(int _Damage)
 {
 	if (m_pmp->m_iNowHp <= _Damage)
 	{
+		
 		m_pmp->m_iNowHp = 0;
 		return 1;
 	}

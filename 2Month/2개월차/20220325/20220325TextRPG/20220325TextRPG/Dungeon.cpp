@@ -49,6 +49,7 @@ int Dungeon::Battle()
 				if (Maingame::m_pp->Hp(m_mp->GetDamage()) == 1)
 				{
 					Maingame::m_pp->Die(m_mp->GetExp());
+					return 1;
 				}
 				
 				if (m_mp->Hp(Maingame::m_pp->GetDamage()) == 1)
@@ -62,6 +63,7 @@ int Dungeon::Battle()
 					DeleteMonster();					
 					return 1;
 				}
+				system("pause");
 				
 
 
