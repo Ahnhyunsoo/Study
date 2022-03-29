@@ -1,0 +1,12 @@
+﻿  stdafx.cpp
+  TextRPG.cpp
+  Shop.cpp
+  Player.cpp
+  Obj.cpp
+  Monster.cpp
+  MainGame.cpp
+  Item.cpp
+  Field.cpp
+  코드를 생성하고 있습니다...
+  TextRPG.vcxproj -> D:\유준환\129기\TextRPG\Debug\TextRPG.exe
+  TextRPG.vcxproj -> D:\유준환\129기\TextRPG\Debug\TextRPG.pdb (Full PDB)
