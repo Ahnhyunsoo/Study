@@ -1,0 +1,108 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="소스 파일">
+      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
+      <Extensions>cpp;c;cc;cxx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
+    </Filter>
+    <Filter Include="헤더 파일">
+      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
+      <Extensions>h;hh;hpp;hxx;hm;inl;inc;xsd</Extensions>
+    </Filter>
+    <Filter Include="리소스 파일">
+      <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
+      <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
+    </Filter>
+    <Filter Include="Maingame">
+      <UniqueIdentifier>{d1f6cd8a-5d0f-49a6-8e8e-afa1a330db47}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Maingame\Obj">
+      <UniqueIdentifier>{7473c2f8-e150-4ce4-9945-cc4774f0bcda}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Maingame\Obj\Player">
+      <UniqueIdentifier>{fc57c231-85a1-4403-ad80-ae706f6a1547}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Maingame\Field">
+      <UniqueIdentifier>{0b05e64c-8436-49ae-bfe6-9746c49d0025}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Maingame\Field\Shop">
+      <UniqueIdentifier>{ead912a2-72ec-425a-a15c-22df08073df7}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Maingame\Field\Dungeon">
+      <UniqueIdentifier>{1bfe0584-760f-4f84-8b50-a5645c61d433}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Maingame\Field\Dungeon\Monster">
+      <UniqueIdentifier>{c9c019e3-3789-493f-985d-9703d36465cb}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Maingame\Obj\Player\Inventory">
+      <UniqueIdentifier>{a8f13036-3666-4c25-95c6-c4bd088b740c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Maingame\Field\Shop\Item">
+      <UniqueIdentifier>{ba42e8d3-3935-4d3c-a8d6-719b61a928c3}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <Text Include="ReadMe.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="stdafx.h">
+      <Filter>헤더 파일</Filter>
+    </ClInclude>
+    <ClInclude Include="targetver.h">
+      <Filter>헤더 파일</Filter>
+    </ClInclude>
+    <ClInclude Include="Define.h">
+      <Filter>헤더 파일</Filter>
+    </ClInclude>
+    <ClInclude Include="Obj.h">
+      <Filter>Maingame\Obj</Filter>
+    </ClInclude>
+    <ClInclude Include="Player.h">
+      <Filter>Maingame\Obj\Player</Filter>
+    </ClInclude>
+    <ClInclude Include="Monster.h">
+      <Filter>Maingame\Field\Dungeon\Monster</Filter>
+    </ClInclude>
+    <ClInclude Include="Maingame.h">
+      <Filter>Maingame</Filter>
+    </ClInclude>
+    <ClInclude Include="Field.h">
+      <Filter>Maingame\Field</Filter>
+    </ClInclude>
+    <ClInclude Include="Dungeon.h">
+      <Filter>Maingame\Field\Dungeon</Filter>
+    </ClInclude>
+    <ClInclude Include="Shop.h">
+      <Filter>Maingame\Field\Shop</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="stdafx.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="20220330TextRPG.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="Obj.cpp">
+      <Filter>Maingame\Obj</Filter>
+    </ClCompile>
+    <ClCompile Include="Player.cpp">
+      <Filter>Maingame\Obj\Player</Filter>
+    </ClCompile>
+    <ClCompile Include="Monster.cpp">
+      <Filter>Maingame\Field\Dungeon\Monster</Filter>
+    </ClCompile>
+    <ClCompile Include="Maingame.cpp">
+      <Filter>Maingame</Filter>
+    </ClCompile>
+    <ClCompile Include="Field.cpp">
+      <Filter>Maingame\Field</Filter>
+    </ClCompile>
+    <ClCompile Include="Dungeon.cpp">
+      <Filter>Maingame\Field\Dungeon</Filter>
+    </ClCompile>
+    <ClCompile Include="Shop.cpp">
+      <Filter>Maingame\Field\Shop</Filter>
+    </ClCompile>
+  </ItemGroup>
+</Project>
