@@ -3,35 +3,49 @@
 
 #include "stdafx.h"
 
-//class CA
-//{
-//public:
-//	virtual void Render() { cout << "부모" << endl; }
-//};
-//
-//class CB : public CA
-//{
-//public:
-//	void Render() { cout << "자식" << endl; }
-//	void RenderCB() { cout << "CB전용" << endl; }
-//};
 
 
-void Render(string* pTemp);
 
-int main()
+class CObj
 {
-	string		iTemp = "Reinterpret";
+private:
+	char		m_pStr[256];
 
-	Render(&iTemp);
-	return 0;
-}
+public:
+	CObj()
+	{
 
-void	Render(string* pTemp)
+	}
+
+	CObj(int a)
+	{
+		cout << a << " 임시생성자" << endl;
+	}
+
+	/*CObj(char* pStr)
+	{
+		strcpy_s(m_pStr, sizeof(m_pStr), pStr);
+		cout << m_pStr << "생성자" << endl;
+	}*/
+	~CObj()
+	{
+		cout << "소멸자" << endl;
+	}
+};
+
+
+void main(void)
 {
-int* pDest = reinterpret_cast<int*>(pTemp);
+	//int iA = 3 + 4;
 
-cout << (*pDest) << endl;
+	//CObj		Obj("일반");
+	//cout << "===============임시 객체 생성================" << endl;
+
+	//CObj("임시 객체");		// 임시 객체는 해당 코드라인을 벗어나는 즉시 소멸된다.
+
+	//cout << "===============임시 객체 소멸================" << endl;
+
+	CObj(1);
+
 }
-
 
