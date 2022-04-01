@@ -179,11 +179,11 @@ using namespace AHS;
 
 void main(void)
 {
-	Mystring a = "aa";
+	/*Mystring a = "aa";
 	Mystring b = "bb";
 	a = a;
 
-	Mycout << a << b << Myendl;
+	Mycout << a << b << Myendl;*/
 
 	/* 대입
 	Mystring a;
@@ -213,9 +213,9 @@ void main(void)
 	*/
 
 
-	/*비교
+	
 	Mystring a = "sss";
-	Mystring b = "sss";
+	Mystring b = "ss";
 	
 	if ((a == b) == 0)
 	{
@@ -224,7 +224,7 @@ void main(void)
 	else
 	{
 		Mycout << "다름" << Myendl;
-	}*/
+	}
 
 
 

@@ -39,7 +39,7 @@ void Maingame::exe()
 			{
 				SAVE_DELETE(m_pp);
 				SAVE_DELETE(m_fp);
-				cout << "게임을 종료합니다" << endl;
+				cout << "게임을 종료합니다" << endl;	
 				return;
 			}
 		}

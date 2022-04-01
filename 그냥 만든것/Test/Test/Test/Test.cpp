@@ -4,48 +4,48 @@
 #include "stdafx.h"
 
 
-
-
-class CObj
+class CA
 {
-private:
-	char		m_pStr[256];
-
+protected:
+	int iA = 10;
 public:
-	CObj()
+	virtual void Print() { cout << iA << endl; }
+	CA()
 	{
 
-	}
-
-	CObj(int a)
-	{
-		cout << a << " 임시생성자" << endl;
-	}
-
-	/*CObj(char* pStr)
-	{
-		strcpy_s(m_pStr, sizeof(m_pStr), pStr);
-		cout << m_pStr << "생성자" << endl;
-	}*/
-	~CObj()
-	{
-		cout << "소멸자" << endl;
 	}
 };
 
+class CB : public CA
+{
+
+public:
+	CB()
+	{
+
+	}
+	void Print() { cout << iA+10 << endl; }
+
+	void PrintB() { cout << 50 << endl; }
+};
 
 void main(void)
 {
-	//int iA = 3 + 4;
+	CA a;
+	CB b;
 
-	//CObj		Obj("일반");
-	//cout << "===============임시 객체 생성================" << endl;
+	CA* pa;
+	CB* pb;
+	pa = new CB;
+	pb = new CB;
+	pb = dynamic_cast<CB*>(pb);
+	
+	//CObj*		pObj = new CObj;
+	//CPlayer*	pPlayer = pObj;
 
-	//CObj("임시 객체");		// 임시 객체는 해당 코드라인을 벗어나는 즉시 소멸된다.
 
-	//cout << "===============임시 객체 소멸================" << endl;
+	
 
-	CObj(1);
-
+	pb->PrintB();
 }
 
