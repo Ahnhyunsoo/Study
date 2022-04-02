@@ -1,0 +1,3 @@
+﻿  스트링복습.cpp
+c:\users\ahs\desktop\jusin\2month\2개월차\20220402\스트링복습\스트링복습\스트링복습.cpp(7): error C2086: 'mystring mycout': 재정의
+  c:\users\ahs\desktop\jusin\2month\2개월차\20220402\스트링복습\스트링복습\스트링복습.cpp(6): note: 'mycout' 선언을 참조하십시오.

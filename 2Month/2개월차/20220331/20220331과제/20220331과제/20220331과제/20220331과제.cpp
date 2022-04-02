@@ -8,7 +8,7 @@ namespace AHS
 	class Mystring
 	{
 	private:
-		char* sA = "";
+		char* sA;
 		char Temp[10000];
 		char* Myendl = "\n";
 		int Length;
@@ -104,7 +104,6 @@ namespace AHS
 				sA = Temp;
 			}
 			return *this;
-
 		}
 
 		int operator == (Mystring& r)
@@ -152,8 +151,9 @@ namespace AHS
 		}
 
 
-		Mystring()
+		Mystring() 
 		{
+			sA = new char;
 			sA = "";
 		}
 

@@ -22,6 +22,7 @@ public:
 
 class DESC final : public Role
 {
+public:
 	bool operator() (int iTemp, int iSour)
 	{
 		if (iTemp > iSour)

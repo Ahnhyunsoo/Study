@@ -4,7 +4,7 @@
 
 using namespace std;
 
-void Bubble_Sort(int* pArray, int iSize);
+//void Bubble_Sort(int* pArray, int iSize);
 
 void main(void)
 {
@@ -34,10 +34,11 @@ void main(void)
 	{
 		iLotto[j] = iArray[j];
 
-		Bubble_Sort(iLotto, sizeof(iArray) / sizeof(int))
+		//Bubble_Sort(iLotto, sizeof(iArray) / sizeof(int));
 
 			cout << iArray[j] << "\t";
 	}
+}
 
 
 
@@ -96,9 +97,9 @@ void main(void)
 		cout << endl;		
 	}*/
 	
-}
 
-void Bubble_Sort(int* pArray, int iSize);
+
+void Bubble_Sort(int* pArray, int iSize)
 {
 	int iTemp = 0;
 
@@ -108,7 +109,9 @@ void Bubble_Sort(int* pArray, int iSize);
 		{
 			if (pArray[j] > pArray[j + 1])
 			{
-				swap
+				/*iTemp = pArray[j];
+				pArray[j] = pArray[j + 1];
+				pArray[j + 1] = iTemp;*/
 			}
 		}
 	}
