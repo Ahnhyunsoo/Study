@@ -3,33 +3,12 @@
 
 #include "stdafx.h"
 
-
-class CA
-{
-protected:
-	int iA = 10;
-public:
-	void Print() { cout << iA << endl; }
-
-	CA()
-	{
-		cout << "bb" << endl;
-	}
-	CA(int a)
-	{
-		cout << a << endl;
-	}
-	
-};
-
-
-
 void main(void)
 {
+	int iArray[2];
+	delete[] iArray;
 	
-	operator () (int a, int b)
-	{
-		
-	}
+
+	cout << sizeof(iArray)/4 << endl;
 }
 
