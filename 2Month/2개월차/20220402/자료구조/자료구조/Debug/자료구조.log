@@ -1,3 +1,16 @@
-﻿  Deque.cpp
-  자료구조.vcxproj -> C:\Users\ahs\Desktop\Jusin\2Month\2개월차\20220402\자료구조\Debug\자료구조.exe
-  자료구조.vcxproj -> C:\Users\ahs\Desktop\Jusin\2Month\2개월차\20220402\자료구조\Debug\자료구조.pdb (Full PDB)
+﻿  자료구조.cpp
+c:\users\ahs\desktop\jusin\2month\2개월차\20220402\자료구조\자료구조\list.h(6): error C2143: 구문 오류: ';'이(가) '*' 앞에 없습니다.
+c:\users\ahs\desktop\jusin\2month\2개월차\20220402\자료구조\자료구조\list.h(6): error C4430: 형식 지정자가 없습니다. int로 가정합니다. 참고: C++에서는 기본 int를 지원하지 않습니다.
+c:\users\ahs\desktop\jusin\2month\2개월차\20220402\자료구조\자료구조\list.h(6): error C2238: ';' 앞에 예기치 않은 토큰이 있습니다.
+c:\users\ahs\desktop\jusin\2month\2개월차\20220402\자료구조\자료구조\list.h(8): error C2061: 구문 오류: 식별자 'Node'
+c:\users\ahs\desktop\jusin\2month\2개월차\20220402\자료구조\자료구조\자료구조.cpp(10): error C2660: 'List::InsertInLinkedList': 함수는 3개의 매개 변수를 사용하지 않습니다.
+c:\users\ahs\desktop\jusin\2month\2개월차\20220402\자료구조\자료구조\자료구조.cpp(11): error C2660: 'List::InsertInLinkedList': 함수는 3개의 매개 변수를 사용하지 않습니다.
+c:\users\ahs\desktop\jusin\2month\2개월차\20220402\자료구조\자료구조\자료구조.cpp(12): error C2660: 'List::InsertInLinkedList': 함수는 3개의 매개 변수를 사용하지 않습니다.
+  List.cpp
+c:\users\ahs\desktop\jusin\2month\2개월차\20220402\자료구조\자료구조\list.h(6): error C2143: 구문 오류: ';'이(가) '*' 앞에 없습니다.
+c:\users\ahs\desktop\jusin\2month\2개월차\20220402\자료구조\자료구조\list.h(6): error C4430: 형식 지정자가 없습니다. int로 가정합니다. 참고: C++에서는 기본 int를 지원하지 않습니다.
+c:\users\ahs\desktop\jusin\2month\2개월차\20220402\자료구조\자료구조\list.h(6): error C2238: ';' 앞에 예기치 않은 토큰이 있습니다.
+c:\users\ahs\desktop\jusin\2month\2개월차\20220402\자료구조\자료구조\list.h(8): error C2061: 구문 오류: 식별자 'Node'
+c:\users\ahs\desktop\jusin\2month\2개월차\20220402\자료구조\자료구조\list.cpp(6): error C2511: 'void List::InsertInLinkedList(Node **,int,int)': 오버로드된 멤버 함수가 'List'에 없습니다.
+  c:\users\ahs\desktop\jusin\2month\2개월차\20220402\자료구조\자료구조\list.h(4): note: 'List' 선언을 참조하십시오.
+  코드를 생성하고 있습니다...
