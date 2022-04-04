@@ -25,8 +25,8 @@ void main(void)
 	cin >> szName;
 
 	cout << szName << endl;*/
-
-	// char* pName = "jusin";
+	
+	// char* pName = "jusin"; jusin 컴파일타이밍에 jusin 문자열을 어딘가에 주소를 할당을해놔
 	// cout << pName << endl;
 
 	// 포인터를 통해 널문자를 만날 때까지 반복문을 실행한 예
