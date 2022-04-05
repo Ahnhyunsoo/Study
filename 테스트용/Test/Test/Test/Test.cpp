@@ -2,13 +2,10 @@
 //
 
 #include "stdafx.h"
-
+#include "bitset"
 void main(void)
 {
-	int iArray[2];
-	delete[] iArray;
-	
-
-	cout << sizeof(iArray)/4 << endl;
+	int a = 10;
+	cout << bitset<6>(a) << endl;
 }
 

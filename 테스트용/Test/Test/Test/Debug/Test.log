@@ -1,4 +1,3 @@
 ﻿  Test.cpp
-c:\users\ahs\desktop\jusin\테스트용\test\test\test\test.cpp(9): warning C4154: 배열 식을 삭제했습니다. 포인터로 변환이 제공됩니다.
-  Test.vcxproj -> C:\Users\ahs\Desktop\Jusin\테스트용\Test\Test\Debug\Test.exe
-  Test.vcxproj -> C:\Users\ahs\Desktop\Jusin\테스트용\Test\Test\Debug\Test.pdb (Full PDB)
+  Test.vcxproj -> C:\Users\ahs\Desktop\jusin\테스트용\Test\Test\Debug\Test.exe
+  Test.vcxproj -> C:\Users\ahs\Desktop\jusin\테스트용\Test\Test\Debug\Test.pdb (Full PDB)

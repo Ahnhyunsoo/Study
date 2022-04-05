@@ -19,7 +19,7 @@
     </ProjectConfiguration>
   </ItemGroup>
   <PropertyGroup Label="Globals">
-    <ProjectGuid>{0504E3AF-AEBA-4B2B-B51C-50A19AF545E5}</ProjectGuid>
+    <ProjectGuid>{EDA86380-635B-4C20-8C88-27FE8BD2E52E}</ProjectGuid>
     <Keyword>Win32Proj</Keyword>
     <RootNamespace>My20220404</RootNamespace>
     <WindowsTargetPlatformVersion>8.1</WindowsTargetPlatformVersion>
