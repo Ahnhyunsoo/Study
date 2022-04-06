@@ -5,10 +5,12 @@ class Inventory
 private:
 	vector<Item> Inven;
 	vector<Item>::iterator iter;
-	int size; 이게 인벤토리고 
+	int size; 
 public:
 	void Push(Item);
-	void Pop(Item);
+	void Pop(int Index);
+	void Print();
+	vector<Item>& GetInven() { return Inven; }
 	int Size() { return size; }
 	Inventory();
 	~Inventory();

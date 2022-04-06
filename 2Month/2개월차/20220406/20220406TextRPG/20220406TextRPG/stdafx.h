@@ -12,6 +12,7 @@
 #include <string>
 #include <iostream>
 #include <vector>
+#include "Define.h"
 
 using namespace std;
 

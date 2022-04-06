@@ -21,6 +21,19 @@ void Obj::Create(string name, int level, int damage, int hp, int exp, int gold)
 	m_iGold = gold;
 }
 
+bool Obj::SetHp(int damage)
+{
+	if (m_iNowHp > damage)
+	{
+		m_iNowHp -= damage;
+		return 0;
+	}
+	else
+	{
+		return 1;
+	}
+}
+
 Obj::Obj()
 {
 }

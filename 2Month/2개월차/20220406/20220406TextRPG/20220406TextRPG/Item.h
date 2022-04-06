@@ -1,39 +1,34 @@
 #pragma once
 #include "stdafx.h"
-struct Item 아이템을 클래스로 안만들고 그냥 define에 헤더만 만들어놓음 구조체만 그래서 그냥 내가 원할 때 템 만들고
+struct Item
 {
 	string Name;
 	int Value;
 	int Price;
 	int Sell; 
 
-	string Name() { return Name; }
-	int Value() { return Value; }
-	int Price() { return Price; }
-	int Sell() { return Sell; }
-
 	void Weapon() 
 	{
-	string Name = "검";
-	int Value = 10;
-	int Price = 100;
-	int sell = 50;
+	Name = "검";
+	Value = 10;
+	Price = 100;
+	Sell = 55;
 	}
 
 	void Armor()
 	{
-		string Name = "갑옷";
-		int Value = 50;
-		int Price = 100;
-		int sell = 50;
+		Name = "갑옷";
+		Value = 50;
+		Price = 150;
+		Sell = 80;
 	}
 
 	void potion()
 	{
-		string Name = "포션";
-		int Value = 10;
-		int Price = 20;
-		int sell = 10;
+		Name = "포션";
+		Value = 60;
+		Price = 50;
+		Sell = 28;
 	}
 	
 };

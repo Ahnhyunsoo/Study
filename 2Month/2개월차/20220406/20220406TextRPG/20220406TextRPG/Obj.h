@@ -12,6 +12,7 @@ protected:
 public:
 	virtual void Print();
 	virtual void Create(string name, int level, int damage, int hp, int exp, int gold);
+	virtual bool SetHp(int Damage);
 	Obj();
 	virtual ~Obj();
 };
