@@ -10,6 +10,7 @@ public:
 	void Push(Item);
 	void Pop(int Index);
 	void Print();
+	void UnLock(int Index);
 	vector<Item>& GetInven() { return Inven; }
 	int Size() { return size; }
 	Inventory();

@@ -1,5 +1,6 @@
 #include "stdafx.h"
 #include "Inventory.h"
+#include "Game.h"
 
 void Inventory::Push(Item item) 
 {
@@ -8,18 +9,28 @@ void Inventory::Push(Item item)
 
 void Inventory::Pop(int Index)
 {
-
 		iter = Inven.begin() + Index - 1;
 		if ((*iter).Value != NULL)
 		{
+			p->Sell(iter->Sell);
 			iter = Inven.erase(iter);
+
 			cout << "판매완료" << endl;
 			system("pause");
 			return;
 		}
 		cout << "판매할 아이템이 없습니다" << endl;
-		system("pause");
-	
+		system("pause");	
+}
+
+void Inventory::UnLock(int Index)
+{
+	iter = Inven.begin() + Index - 1;
+	if ((*iter).Value != NULL)
+	{
+		iter = Inven.erase(iter);
+		return;
+	}
 }
 
 void Inventory::Print()
@@ -50,6 +61,8 @@ void Inventory::Print()
 
 
 }
+
+
 
 Inventory::Inventory()
 	:size(5)

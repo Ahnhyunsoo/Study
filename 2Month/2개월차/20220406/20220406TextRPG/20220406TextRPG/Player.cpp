@@ -2,6 +2,50 @@
 #include "Player.h"
 
 
+void Player::Use(string name, int value)
+{
+	if (name == "검")
+	{
+		Wvalue = value;
+		m_sWP = name;
+		m_iDamage += Wvalue;
+		return;
+	}
+	else
+	{
+		Avalue = value;
+		m_sAM = name;
+		m_iMaxHp += Avalue;
+		m_iNowHp += Avalue;
+		return;
+	}
+}
+
+void Player::Remove(int type)
+{
+	if (type == 1)
+	{
+		Item* WP = new Item;
+		WP->Weapon();
+		m_ip->GetInven().push_back(*WP);
+		m_iDamage -= Wvalue;
+		Wvalue = 0;
+		m_sWP = "없음";		
+		return;
+	}
+	else
+	{
+		Item* AM = new Item;
+		AM->Armor();
+		m_ip->GetInven().push_back(*AM);
+		m_iMaxHp -= Avalue;
+		m_iNowHp -= Avalue;
+		Avalue = 0;
+		m_sAM = "없음";
+		return;
+	}
+}
+
 void Player::Print()
 {
 	Obj::Print();
@@ -82,7 +126,7 @@ void Player::Fighter()
 	int damage = 20;
 	int hp = 200;
 	int exp = 100;
-	int gold = 100;
+	int gold = 1000;
 
 	Obj::Create(name, level, damage, hp, exp, gold);
 }
@@ -94,7 +138,7 @@ void Player::Wizard()
 	int damage = 50;
 	int hp = 100;
 	int exp = 100;
-	int gold = 100;
+	int gold = 1000;
 
 	Obj::Create(name, level, damage, hp, exp, gold);
 }
@@ -104,7 +148,7 @@ void Player::Wizard()
 
 
 Player::Player()
-	:m_iAttack(0),m_igetdamage(0),m_iDie(0),m_iKill(0),m_iNowExp(0),m_sWP("없음"),m_sAM("없음")
+	:Wvalue(0), Avalue(0),m_iAttack(0),m_igetdamage(0),m_iDie(0),m_iKill(0),m_iNowExp(0),m_sWP("없음"),m_sAM("없음")
 {
 	m_ip = new Inventory;	
 }

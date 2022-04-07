@@ -13,12 +13,12 @@ private:
 	int m_igetdamage;
 	string m_sWP;
 	string m_sAM;
+	int Wvalue;
+	int Avalue;
 public:
 	Inventory* Getip() { return m_ip; }
-	void UseWP(string name, int damage) { m_sWP = name; m_iDamage += damage; }
-	void RemoveWP(int damage) { m_sWP = "없음"; m_iDamage -= damage; }
-	void UseAM(string name, int value) { m_sAM = name; m_iMaxHp += value; }
-	void RemoveAM(int value) { m_sAM = "없음";  m_iMaxHp -= value; }
+	void Use(string name, int value);
+	void Remove(int type);
 	void Print();
 	void Die() { cout << "죽었습니다" << endl; system("pause"); m_iDie += 1; m_iNowHp = m_iMaxHp; }
 	void Kill(int Exp, int Gold);
@@ -34,7 +34,10 @@ public:
 	int GetKill() { return m_iKill; }
 	int GetDie() { return m_iDie; }
 	int GetGold() { return m_iGold; }
+	string GetWP() { return m_sWP; }
+	string GetAM() { return m_sAM; }
 	void SetGold(int price) { m_iGold -= price; }
+	void Sell(int price) { m_iGold += price; }
 
 
 	Player();

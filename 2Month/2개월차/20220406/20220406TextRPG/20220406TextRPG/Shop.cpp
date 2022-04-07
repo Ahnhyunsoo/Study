@@ -57,8 +57,15 @@ void Shop::Buy()
 				p->SetGold(100);
 				ip = new Item;
 				ip->Weapon();
-				p->Getip()->GetInven().push_back(*ip);
-				cout << "구매 완료" << endl;
+				if (p->Getip()->GetInven().size() < 5)
+				{
+					p->Getip()->GetInven().push_back(*ip);
+					cout << "구매 완료" << endl;
+				}
+				else
+				{
+					cout << "인벤토리가 가득 찼습니다" << endl;
+				}
 				
 			}
 			else
@@ -74,8 +81,15 @@ void Shop::Buy()
 				p->SetGold(150);
 				ip = new Item;
 				ip->Armor();
-				p->Getip()->GetInven().push_back(*ip);
-				cout << "구매 완료" << endl;
+				if (p->Getip()->GetInven().size() < 5)
+				{
+					p->Getip()->GetInven().push_back(*ip);
+					cout << "구매 완료" << endl;
+				}
+				else
+				{
+					cout << "인벤토리가 가득 찼습니다" << endl;
+				}
 				
 			}
 			else
@@ -91,8 +105,15 @@ void Shop::Buy()
 				p->SetGold(50);
 				ip = new Item;
 				ip->potion();
-				p->Getip()->GetInven().push_back(*ip);
-				cout << "구매 완료" << endl;
+				if (p->Getip()->GetInven().size() < 5)
+				{
+					p->Getip()->GetInven().push_back(*ip);
+					cout << "구매 완료" << endl;
+				}
+				else
+				{
+					cout << "인벤토리가 가득 찼습니다" << endl;
+				}
 			}
 			else
 			{

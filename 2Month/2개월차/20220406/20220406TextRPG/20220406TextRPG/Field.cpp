@@ -97,13 +97,7 @@ void Field::Mypage()
 		switch(Input)
 		{
 		case 1:
-			system("cls");
-			cout << "내정보" << endl;
-			p->Print();
-			cout << "인벤토리" << endl;
-			p->Getip()->Print();
-			
-			system("pause");
+			Info();
 			continue;
 
 		case 2:
@@ -118,6 +112,155 @@ void Field::Mypage()
 		case 3:
 			place = 1;
 			return;
+		}
+	}
+}
+
+void Field::Info()
+{
+	
+	int Input;
+	
+	
+	while (true)
+	{
+		system("cls");
+		cout << "내정보" << endl;
+		p->Print();
+		cout << "인벤토리" << endl;
+		p->Getip()->Print();
+		cout << "1. 장착, 2. 해제, 3. 뒤로가기 : ";
+		cin >> Input;
+		switch (Input)
+		{
+		case 1:
+			Use();
+			continue;
+
+		case 2:
+			Remove();
+			continue;
+
+		case 3:
+			return;
+
+		default:
+			continue;
+		}
+
+	}
+	
+}
+
+void Field::Use()
+{
+	int Input;
+	
+	while (true)
+	{
+		system("cls");
+		cout << "내정보" << endl;
+		p->Print();
+		cout << "인벤토리" << endl;
+		p->Getip()->Print();
+		cout << "(0 = 뒤로가기) 장착할 아이템의 번호 : ";
+		cin >> Input;
+	
+		if (Input == 0)
+		{
+			return;
+		}
+		else if (Input <= p->Getip()->GetInven().size())
+		{
+			if (p->Getip()->GetInven()[Input - 1].Name == "검")
+			{
+				if (p->GetWP() == "없음")
+				{
+					p->Use(p->Getip()->GetInven()[Input - 1].Name, p->Getip()->GetInven()[Input - 1].Value);
+					p->Getip()->UnLock(Input);
+				}
+				else
+				{
+					cout << "무기를 이미 장착중입니다" << endl;
+					system("pause");
+				}
+			}
+			else if(p->Getip()->GetInven()[Input - 1].Name == "갑옷")
+			{
+				if (p->GetAM() == "없음")
+				{
+					p->Use(p->Getip()->GetInven()[Input - 1].Name, p->Getip()->GetInven()[Input - 1].Value);
+					p->Getip()->UnLock(Input);
+				}
+				else
+				{
+					cout << "방어구를 이미 장착중입니다" << endl;
+					system("pause");
+				}
+			}
+			else
+			{
+				cout << "포션은 장착할 수 없습니다" << endl;
+				system("pause");
+				continue;
+			}
+		}
+		else
+		{
+			cout << "잘못 입력하셨습니다" << endl;
+			system("pause");
+			continue;
+		}
+
+	}
+}
+
+void Field::Remove()
+{
+	int Input;
+
+	while (true)
+	{
+		system("cls");
+		cout << "내정보" << endl;
+		p->Print();
+		cout << "인벤토리" << endl;
+		p->Getip()->Print();
+		cout << "1. 무기해제, 2.방어구해제, 3. 뒤로가기 : ";
+		cin >> Input;
+		switch (Input)
+		{
+		case 1:
+			if (p->GetWP() != "없음")
+			{
+				p->Remove(1);
+			}
+			else
+			{
+				cout << "장착한 무기가 없습니다" << endl; 
+				system("pause");
+			}
+			continue;
+
+		case 2:
+			if (p->GetAM() != "없음")
+			{
+				p->Remove(2);
+			}
+			else
+			{
+				cout << "장착한 방어구가 없습니다" << endl;
+				system("pause");
+			}
+			continue;
+
+		case 3:
+			return;
+
+		default :
+			cout << "잘못입력하셨습니다" << endl;
+			system("pause");
+			continue;
 		}
 	}
 }

@@ -17,6 +17,9 @@ public:
 	void DungeonFront();
 	void Shoping();
 	void Mypage();
+	void Info();
+	void Use();
+	void Remove();
 	Field();
 	~Field();
 };
