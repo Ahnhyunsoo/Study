@@ -8,6 +8,7 @@
 
 // 전역 변수:
 HINSTANCE hInst;                                // 현재 인스턴스입니다.
+HWND g_hWnd;
 WCHAR szTitle[MAX_LOADSTRING];                  // 제목 표시줄 텍스트입니다.
 WCHAR szWindowClass[MAX_LOADSTRING];            // 기본 창 클래스 이름입니다.
 
@@ -45,15 +46,35 @@ int APIENTRY wWinMain(_In_ HINSTANCE hInstance,
 
     MSG msg;
 
+    //SetTimer(g_hWnd,20,0,nullptr);
+
+    //GetMessage = 메시지큐에서 메시지가 확인될 때 까지 대기
+        //msg.message = WM_QUIT 인 경우 false를 반환-> 프로그램 종료
+
+        //PeekMessage = 메세지 유무와 상관없이 반환
+        // 메세지큐에서 메세지를 확인한 경우 true, 메세지큐에서 메세지가 없는 경우 false 를 반환
     // 기본 메시지 루프입니다:
-    while (GetMessage(&msg, nullptr, 0, 0))
+
+    while (true)
     {
-        if (!TranslateAccelerator(msg.hwnd, hAccelTable, &msg))
+        if (PeekMessage(&msg, nullptr, 0, 0, PM_REMOVE))
         {
-            TranslateMessage(&msg);
-            DispatchMessage(&msg);
+            if (WM_QUIT == msg.message)
+                break;
+
+            if (!TranslateAccelerator(msg.hwnd, hAccelTable, &msg))
+            {
+                TranslateMessage(&msg);
+                DispatchMessage(&msg);
+            }
+        }
+        else
+        {
+            //메세지가 없는동안 호출
+
         }
     }
+    //KillTimer(g_hWnd, 20);
 
     return (int) msg.wParam;
 }
@@ -100,19 +121,39 @@ BOOL InitInstance(HINSTANCE hInstance, int nCmdShow)
 {
    hInst = hInstance; // 인스턴스 핸들을 전역 변수에 저장합니다.
 
-   HWND hWnd = CreateWindowW(szWindowClass, szTitle, WS_OVERLAPPEDWINDOW,
+   g_hWnd = CreateWindowW(szWindowClass, szTitle, WS_OVERLAPPEDWINDOW,
       CW_USEDEFAULT, 0, CW_USEDEFAULT, 0, nullptr, nullptr, hInstance, nullptr);
 
-   if (!hWnd)
+   if (!g_hWnd)
    {
       return FALSE;
    }
 
-   ShowWindow(hWnd, nCmdShow);
-   UpdateWindow(hWnd);
+   ShowWindow(g_hWnd, nCmdShow);
+   UpdateWindow(g_hWnd);
 
    return TRUE;
 }
+
+#include <vector>
+
+using std::vector;
+
+struct tObjInfo
+{
+    POINT g_ptObjPos;
+    POINT g_ptObjScale;
+};
+
+vector<tObjInfo> g_vecInfo;
+//좌상단 좌표
+POINT g_ptLT;
+//우하단 좌표
+POINT g_ptRB;
+
+bool bLbtnDown = false;
+
+
 
 //
 //  함수: WndProc(HWND, UINT, WPARAM, LPARAM)
@@ -153,8 +194,20 @@ LRESULT CALLBACK WndProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam)
             //윈도우 핸들
             //윈도우 좌표
             //HDC ?
+            if (bLbtnDown == true)
+            {
+                Rectangle(hdc, g_ptLT.x, g_ptLT.y
+                    , g_ptRB.x, g_ptRB.y);
+            }
 
-            Rectangle(hdc,10,10,110,110);
+            for (size_t i = 0; i < g_vecInfo.size(); ++i)
+            {
+                Rectangle(hdc
+                    , g_vecInfo[i].g_ptObjPos.x - g_vecInfo[i].g_ptObjScale.x / 2
+                    , g_vecInfo[i].g_ptObjPos.y - g_vecInfo[i].g_ptObjScale.y / 2
+                    , g_vecInfo[i].g_ptObjPos.x + g_vecInfo[i].g_ptObjScale.x / 2
+                    , g_vecInfo[i].g_ptObjPos.y + g_vecInfo[i].g_ptObjScale.y / 2);
+            }
 
 
             EndPaint(hWnd, &ps);
@@ -163,6 +216,74 @@ LRESULT CALLBACK WndProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam)
     case WM_DESTROY:
         PostQuitMessage(0);
         break;
+
+    
+    
+    case WM_KEYDOWN:
+        switch (wParam)
+        {
+        case VK_UP:
+            //g_ptObjPos.y -= 50;
+            InvalidateRect(hWnd,nullptr,true);
+            break;
+
+        case VK_LEFT:
+           // g_ptObjPos.x -= 50;
+            InvalidateRect(hWnd, nullptr, true);
+            break;
+
+        case VK_RIGHT:
+            //g_ptObjPos.x += 50;
+            InvalidateRect(hWnd, nullptr, true);
+            break;
+
+        case VK_DOWN:
+           // g_ptObjPos.y += 50;
+            InvalidateRect(hWnd, nullptr, true);
+            break;
+
+        }
+    case WM_LBUTTONDOWN:
+    {
+        g_ptLT.x = LOWORD(lParam);
+        g_ptLT.y = HIWORD(lParam);
+        bLbtnDown = true;
+        
+    }
+    break;
+
+    case WM_MOUSEMOVE:
+        g_ptRB.x = LOWORD(lParam);
+        g_ptRB.y = HIWORD(lParam);
+        InvalidateRect(hWnd, nullptr, true);
+        break;
+
+    case WM_LBUTTONUP:
+    {
+        g_ptRB.x = LOWORD(lParam);
+        g_ptRB.y = HIWORD(lParam);
+
+        tObjInfo info = {};
+        info.g_ptObjPos.x = (g_ptLT.x + g_ptRB.x) / 2;
+        info.g_ptObjPos.y = (g_ptLT.y + g_ptRB.y) / 2;
+
+        info.g_ptObjScale.x = abs(g_ptLT.x - g_ptRB.x);
+        info.g_ptObjScale.y = abs(g_ptLT.y - g_ptRB.y);
+        g_vecInfo.push_back(info);
+        InvalidateRect(hWnd, nullptr, true);
+
+        bLbtnDown = false;
+    }
+    break;
+
+    case WM_TIMER:
+    {
+        int a = 0;
+    }
+
+
+        break;
+
     default:
         return DefWindowProc(hWnd, message, wParam, lParam);
     }
