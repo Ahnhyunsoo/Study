@@ -347,6 +347,7 @@ LRESULT CALLBACK WndProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam)
 					if (iter->a.top <= monster.bottom && iter->a.left <= monster.right && iter->a.right >= monster.left)
 					{
 						m_BulletList.erase(iter);
+						sNum += 1;
 						hit += 1;
 						break;
 						
@@ -360,6 +361,7 @@ LRESULT CALLBACK WndProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam)
 					if (iter->a.top <= monster.bottom && iter->a.left <= monster.right && iter->a.right >= monster.left)
 					{
 						m_BulletList.erase(iter);
+						sNum += 1;
 						hit += 1;
 						break;
 					
@@ -374,6 +376,7 @@ LRESULT CALLBACK WndProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam)
 					if (iter->a.top <= monster.bottom && iter->a.left <= monster.right && iter->a.right >= monster.left)
 					{
 						m_BulletList.erase(iter);
+						sNum += 1;
 						hit += 1;
 						break;
 					}
