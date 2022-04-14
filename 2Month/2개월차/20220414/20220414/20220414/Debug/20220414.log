@@ -1,0 +1,13 @@
+﻿  20220414.cpp
+c:\users\ahs\desktop\jusin\2month\2개월차\20220414\20220414\20220414\20220414.cpp(268): warning C4302: '<function-style-cast>': 'const char *'에서 'wchar_t'(으)로 잘립니다.
+c:\users\ahs\desktop\jusin\2month\2개월차\20220414\20220414\20220414\20220414.cpp(273): warning C4302: '<function-style-cast>': 'const char *'에서 'wchar_t'(으)로 잘립니다.
+c:\users\ahs\desktop\jusin\2month\2개월차\20220414\20220414\20220414\20220414.cpp(326): warning C4302: '<function-style-cast>': 'const char *'에서 'wchar_t'(으)로 잘립니다.
+c:\users\ahs\desktop\jusin\2month\2개월차\20220414\20220414\20220414\20220414.cpp(342): warning C4302: '<function-style-cast>': 'const char *'에서 'wchar_t'(으)로 잘립니다.
+c:\users\ahs\desktop\jusin\2month\2개월차\20220414\20220414\20220414\20220414.cpp(355): warning C4302: '<function-style-cast>': 'const char *'에서 'wchar_t'(으)로 잘립니다.
+c:\users\ahs\desktop\jusin\2month\2개월차\20220414\20220414\20220414\20220414.cpp(369): warning C4302: '<function-style-cast>': 'const char *'에서 'wchar_t'(으)로 잘립니다.
+c:\users\ahs\desktop\jusin\2month\2개월차\20220414\20220414\20220414\20220414.cpp(423): warning C4302: '<function-style-cast>': 'const char *'에서 'wchar_t'(으)로 잘립니다.
+c:\users\ahs\desktop\jusin\2month\2개월차\20220414\20220414\20220414\20220414.cpp(432): warning C4302: '<function-style-cast>': 'const char *'에서 'wchar_t'(으)로 잘립니다.
+c:\users\ahs\desktop\jusin\2month\2개월차\20220414\20220414\20220414\20220414.cpp(441): warning C4302: '<function-style-cast>': 'const char *'에서 'wchar_t'(으)로 잘립니다.
+c:\users\ahs\desktop\jusin\2month\2개월차\20220414\20220414\20220414\20220414.cpp(450): warning C4302: '<function-style-cast>': 'const char *'에서 'wchar_t'(으)로 잘립니다.
+  20220414.vcxproj -> C:\Users\ahs\Desktop\jusin\2Month\2개월차\20220414\20220414\Debug\20220414.exe
+  20220414.vcxproj -> C:\Users\ahs\Desktop\jusin\2Month\2개월차\20220414\20220414\Debug\20220414.pdb (Full PDB)
