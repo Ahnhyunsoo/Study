@@ -88,6 +88,7 @@
       <Optimization>Disabled</Optimization>
       <PreprocessorDefinitions>WIN32;_DEBUG;_WINDOWS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <SDLCheck>true</SDLCheck>
+      <AdditionalIncludeDirectories>../헤더;C:\Users\ahs\Desktop\jusin\2Month\2개월차\20220414\20220414\헤더;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Windows</SubSystem>
@@ -146,12 +147,19 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="20220414.h" />
+    <ClInclude Include="Default.h" />
+    <ClInclude Include="enum.h" />
+    <ClInclude Include="Functor.h" />
+    <ClInclude Include="include.h" />
+    <ClInclude Include="MainGame.h" />
     <ClInclude Include="Resource.h" />
     <ClInclude Include="stdafx.h" />
+    <ClInclude Include="Struct.h" />
     <ClInclude Include="targetver.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="20220414.cpp" />
+    <ClCompile Include="MainGame.cpp" />
     <ClCompile Include="stdafx.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Create</PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Create</PrecompiledHeader>

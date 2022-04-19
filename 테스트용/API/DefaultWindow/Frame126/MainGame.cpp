@@ -44,3 +44,15 @@ void CMainGame::Release(void)
 	Safe_Delete<CObj*>(m_pPlayer);
 	ReleaseDC(g_hWnd, m_DC);
 }
+
+void CMainGame::CreateBullet(RECT bl)
+{
+	m_myBullet.push_back(bl);
+}
+
+void CMainGame::ShotBullet(wchar_t key, RECT rc)
+{
+	auto iter = m_myBullet.begin();
+	iter->top -= 10;
+	iter->bottom -= 10;
+}

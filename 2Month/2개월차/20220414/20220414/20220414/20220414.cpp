@@ -6,6 +6,7 @@
 #include <list>
 #include <iostream>
 #include <random>
+#include "MainGame.h"
 
 using namespace std;
 
@@ -46,6 +47,15 @@ int APIENTRY wWinMain(_In_ HINSTANCE hInstance,
     HACCEL hAccelTable = LoadAccelerators(hInstance, MAKEINTRESOURCE(IDC_MY20220414));
 
     MSG msg;
+	//msg.message = WM_NULL;
+
+	CMainGame* pMainGame = new CMainGame;
+
+	if (nullptr == pMainGame)
+		return FALSE;
+
+	pMainGame->Initialize();
+
 
     // 기본 메시지 루프입니다.
     while (GetMessage(&msg, nullptr, 0, 0))
@@ -57,7 +67,33 @@ int APIENTRY wWinMain(_In_ HINSTANCE hInstance,
         }
     }
 
-    return (int) msg.wParam;
+	//while (true)
+	//{
+	////PM_REMOVE : 메시지를 읽어옴과 동시에 메시지 큐에서 제거
+	//	//PM_NOREMOVE : 메시지 큐에 메시지가 존재하는지만 파악, 만약 메시지를 얻어오려면
+	//	//GetMessage를 다시 호출호출해야함
+	//	if(PeekMessage(&msg, nullptr, 0, 0, PM_REMOVE))
+	//	{
+	//		if (WM_QUIT == msg.message)
+	//			break;
+
+	//		if (!TranslateAccelerator(msg.hwnd, hAccelTable, &msg))
+	//		{
+	//			TranslateMessage(&msg);
+	//			DispatchMessage(&msg);
+	//		}
+	//	}
+	//	else
+	//	{
+
+	//		pMainGame->Update();
+	//		pMainGame->Render();
+	//		
+	//	}쉐어드 위크드 유니크 = c++11이후의 스마트 포인터
+	//스마트포인터는 메모리누수를 방지하기위해 만들었다.
+	//	Safe_Delete<CMainGame*>(pMainGame);
+		return (int)msg.wParam;
+	
 }
 
 
@@ -194,8 +230,9 @@ void Monster::CreateMonster()
 
 
 
-
-
+//AdjustWindowRect중요 제공하는 해상도쓰자!!
+//텍스쳐도 앵간하면 2의n제곱 형태로 작성하는게좋다.
+//창의 기본요소 프레임 뷰 도큐먼트
 struct MYBULLET
 {
 	RECT a;
@@ -338,6 +375,57 @@ LRESULT CALLBACK WndProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam)
 					}
 
 				}
+
+				else if (iter->btype == wchar_t("왼쪽"))
+				{
+					Rectangle(hdc, iter->a.left + 10, iter->a.top + 10, iter->a.right - 10, iter->a.bottom - 10);
+					iter->a.left -= 10;
+					iter->a.right -= 10;
+			
+					if (iter->a.top <= monster.bottom && iter->a.left <= monster.right && iter->a.right >= monster.left)
+					{
+						m_BulletList.erase(iter);
+						sNum += 1;
+						hit += 1;
+
+						break;
+					}
+
+				}
+
+				else if (iter->btype == wchar_t("오른쪽"))
+				{
+					Rectangle(hdc, iter->a.left + 10, iter->a.top + 10, iter->a.right - 10, iter->a.bottom - 10);
+					iter->a.left += 10;
+					iter->a.right += 10;
+
+					if (iter->a.top <= monster.bottom && iter->a.left <= monster.right && iter->a.right >= monster.left)
+					{
+						m_BulletList.erase(iter);
+						sNum += 1;
+						hit += 1;
+
+						break;
+					}
+
+				}
+
+				else if (iter->btype == wchar_t("아래"))
+				{
+					Rectangle(hdc, iter->a.left + 10, iter->a.top + 10, iter->a.right - 10, iter->a.bottom - 10);
+					iter->a.top += 10;
+					iter->a.bottom += 10;
+
+					if (iter->a.top <= monster.bottom && iter->a.left <= monster.right && iter->a.right >= monster.left)
+					{
+						m_BulletList.erase(iter);
+						sNum += 1;
+						hit += 1;
+
+						break;
+					}
+
+				}
 			
 				else if (iter->btype == wchar_t("동그라미"))
 				{
@@ -454,6 +542,30 @@ LRESULT CALLBACK WndProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam)
 			m_BulletList.push_back(F);
 			break;
 
+		case 'Q':
+			MYBULLET Q;
+			Q.a = rc;
+			Q.damage = 4;
+			Q.btype = wchar_t("왼쪽");
+			m_BulletList.push_back(Q);
+			break;
+
+		case 'W':
+			MYBULLET W;
+			W.a = rc;
+			W.damage = 4;
+			W.btype = wchar_t("오른쪽");
+			m_BulletList.push_back(W);
+			break;
+
+		case 'E':
+			MYBULLET E;
+			E.a = rc;
+			E.damage = 4;
+			E.btype = wchar_t("아래");
+			m_BulletList.push_back(E);
+			break;
+
 	
 			
 			break;
@@ -491,3 +603,29 @@ INT_PTR CALLBACK About(HWND hDlg, UINT message, WPARAM wParam, LPARAM lParam)
     }
     return (INT_PTR)FALSE;
 }
+
+#if(0)
+ 함수 실행이 종료되면 할당되었던 스택 메모리를 해제해야 하는데 함수를 호출한 호출원(caller)에서 해제할건지
+ 호출받은 파호출자(callee)에서 해제할것인가에 대한 주권판단의 개념
+ __cdecl, __stdcall, __fastcall, thiscall , naked 등
+
+__cdecl = 호출자에서 스택을 정리 , 가변인자다.
+__stdcall = 피호출자에서 스택을 정리, 가변인자가 아니다.
+
+ __cdecl = c, c++의 기본 호출 규약, 호출자에 해당하는 caller가 스택을 정리한다.
+함수호출규약의 공통점은 자기 자신에게 어떤 매개변수가 들어온지 모른다. 가변인자가 가능한 함수
+이로 인해 본인이 스택을 정리할 수 없다.
+__stdcall
+WIN32 api의 기본 호출 규약, 피호출자(callee)가 스택을 정리한다.
+api에서 제공하는 대부분의 함수들처럼 __stdcall은 '고정 인자 함수' 이다.
+매개변수가 고정되어 있다보니 어떤 데이터 타입이 들어올지 알고 있기 때문에
+피호출자 본인이 스택을 정리할 수 있다.
+
+__fastcall
+함수 호출을 빠르게 처리하기 위한 호출 규약이다,
+ecx와 edx라는 레지스터를 통해 저장된다. 레지스터를 사용하고 있다는 점때문에 함수 호출이 빠르다.
+
+thiscall 
+this 포인터를 인자로 넘겨받았을 때 사용하는 호출 규약이다.
+
+#endif

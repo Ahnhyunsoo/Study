@@ -19,7 +19,10 @@ public:
 
 protected:
 	INFO			m_tInfo;
-	RECT			m_tRect;	
+	INFO			m_myRect;
+	RECT			m_myRt;
+	RECT			m_tRect;
+	RECT			m_bullet;
 
 	float			m_fSpeed;
 };
