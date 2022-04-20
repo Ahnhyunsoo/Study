@@ -78,6 +78,11 @@ void CPlayer::Update_Bullet()
 		if (iter->GetLc() == 4)
 		{
 			iter->SetA();
+			if (iter->GetBl().left < m_rRect.left)
+			{
+				MyBullet.erase(iter);
+				break;
+			}
 		}
 		else if (iter->GetLc() == 2)
 		{
@@ -112,8 +117,8 @@ void CPlayer::Key_Input(void)
 	{
 		if (GetAsyncKeyState('A'))
 		{
-			m_pb = new CBullet(m_tRect, 4);
-			MyBullet.push_back(*m_pb);
+			
+			MyBullet.push_back(CBullet(m_tRect,4));
 
 			PrevTime = GetTickCount();
 		}

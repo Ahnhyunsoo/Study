@@ -1,0 +1,5 @@
+﻿  MainGame.cpp
+c:\users\ahs\desktop\jusin\3month\20220420\api3일차-총알생성 및 네 방향 발사\default\maingame.cpp(71): warning C4800: 'BOOL': 'true' 또는 'false'로 bool 값을 강제하고 있습니다(성능 경고).
+c:\users\ahs\desktop\jusin\3month\20220420\api3일차-총알생성 및 네 방향 발사\default\maingame.cpp(70): warning C4101: 'rc' :참조되지 않은 지역 변수입니다.
+  Default.vcxproj -> C:\Users\ahs\Desktop\jusin\3Month\20220420\API3일차-총알생성 및 네 방향 발사\Debug\Default.exe
+  Default.vcxproj -> C:\Users\ahs\Desktop\jusin\3Month\20220420\API3일차-총알생성 및 네 방향 발사\Debug\Default.pdb (Full PDB)
