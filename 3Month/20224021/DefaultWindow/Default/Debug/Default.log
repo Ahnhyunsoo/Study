@@ -1,0 +1,5 @@
+﻿  MainGame.cpp
+c:\users\ahs\desktop\jusin\3month\20224021\defaultwindow\default\maingame.cpp(55): warning C4305: '인수': 'double'에서 'float'(으)로 잘립니다.
+c:\users\ahs\desktop\jusin\3month\20224021\defaultwindow\default\maingame.cpp(60): warning C4305: '인수': 'double'에서 'float'(으)로 잘립니다.
+  Default.vcxproj -> C:\Users\ahs\Desktop\jusin\3Month\20224021\DefaultWindow\Debug\Default.exe
+  Default.vcxproj -> C:\Users\ahs\Desktop\jusin\3Month\20224021\DefaultWindow\Debug\Default.pdb (Full PDB)
