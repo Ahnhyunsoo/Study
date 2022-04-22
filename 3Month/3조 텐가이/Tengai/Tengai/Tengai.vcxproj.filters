@@ -1,0 +1,124 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="소스 파일">
+      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
+      <Extensions>cpp;c;cc;cxx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
+    </Filter>
+    <Filter Include="헤더 파일">
+      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
+      <Extensions>h;hh;hpp;hxx;hm;inl;inc;xsd</Extensions>
+    </Filter>
+    <Filter Include="리소스 파일">
+      <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
+      <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
+    </Filter>
+    <Filter Include="CAbstractFactory">
+      <UniqueIdentifier>{f314b77d-0f4c-4183-b72b-1e7cc79cc97c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="CMainGame">
+      <UniqueIdentifier>{29ae9d1c-81ed-4dff-b3f1-25c55ad69085}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="CollisionMgr">
+      <UniqueIdentifier>{f9f932ab-43b5-43d2-8dad-6050cebce0f9}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="CObj">
+      <UniqueIdentifier>{f6283c33-38d0-405b-abf9-0dfc6b81ce0e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="CMonster">
+      <UniqueIdentifier>{c4f2de1f-fb60-4cc9-a15b-7c431e5a701a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="CPlayer">
+      <UniqueIdentifier>{23fb9bda-15e3-410f-9e20-ac05175511c2}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="CInitPage">
+      <UniqueIdentifier>{ce610ee1-b9c5-4ca8-adfa-a2102b174b07}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <Text Include="ReadMe.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="stdafx.h">
+      <Filter>헤더 파일</Filter>
+    </ClInclude>
+    <ClInclude Include="targetver.h">
+      <Filter>헤더 파일</Filter>
+    </ClInclude>
+    <ClInclude Include="Resource.h">
+      <Filter>헤더 파일</Filter>
+    </ClInclude>
+    <ClInclude Include="Tengai.h">
+      <Filter>헤더 파일</Filter>
+    </ClInclude>
+    <ClInclude Include="Define.h">
+      <Filter>헤더 파일</Filter>
+    </ClInclude>
+    <ClInclude Include="Enum.h">
+      <Filter>헤더 파일</Filter>
+    </ClInclude>
+    <ClInclude Include="Functor.h">
+      <Filter>헤더 파일</Filter>
+    </ClInclude>
+    <ClInclude Include="Struct.h">
+      <Filter>헤더 파일</Filter>
+    </ClInclude>
+    <ClInclude Include="Include.h">
+      <Filter>헤더 파일</Filter>
+    </ClInclude>
+    <ClInclude Include="CAbstractFactory.h">
+      <Filter>CAbstractFactory</Filter>
+    </ClInclude>
+    <ClInclude Include="MainGame.h">
+      <Filter>CMainGame</Filter>
+    </ClInclude>
+    <ClInclude Include="CollisionMgr.h">
+      <Filter>CollisionMgr</Filter>
+    </ClInclude>
+    <ClInclude Include="Obj.h">
+      <Filter>CObj</Filter>
+    </ClInclude>
+    <ClInclude Include="Player.h">
+      <Filter>CPlayer</Filter>
+    </ClInclude>
+    <ClInclude Include="InitPage.h">
+      <Filter>CInitPage</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="stdafx.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="Tengai.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="MainGame.cpp">
+      <Filter>CMainGame</Filter>
+    </ClCompile>
+    <ClCompile Include="CollisionMgr.cpp">
+      <Filter>CollisionMgr</Filter>
+    </ClCompile>
+    <ClCompile Include="Obj.cpp">
+      <Filter>CObj</Filter>
+    </ClCompile>
+    <ClCompile Include="Player.cpp">
+      <Filter>CPlayer</Filter>
+    </ClCompile>
+    <ClCompile Include="InitPage.cpp">
+      <Filter>CInitPage</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ResourceCompile Include="Tengai.rc">
+      <Filter>리소스 파일</Filter>
+    </ResourceCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <Image Include="small.ico">
+      <Filter>리소스 파일</Filter>
+    </Image>
+    <Image Include="Tengai.ico">
+      <Filter>리소스 파일</Filter>
+    </Image>
+  </ItemGroup>
+</Project>
