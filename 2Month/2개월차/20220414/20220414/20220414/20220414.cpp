@@ -339,7 +339,7 @@ LRESULT CALLBACK WndProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam)
 			int rNum = range(rd);
 
 
-			if (rNum % 2 == 1)
+			/*if (rNum % 2 == 1)
 			{
 				if (monster.left >= rNum)
 				{
@@ -354,7 +354,7 @@ LRESULT CALLBACK WndProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam)
 					monster.left += rNum;
 					monster.right += rNum;
 				}
-			}
+			}*/
 			
 
 

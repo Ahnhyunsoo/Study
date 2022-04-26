@@ -16,11 +16,12 @@ public:
 	virtual        void    Release(void);
 	
 public:
-	void Set_BulletList(list<CObj*>* b) {};
+	void Set_BulletList(list<CObj*>* pBullet) { m_Bulletlist = pBullet; }
+	void Key_Input();
 private:
-	list<CObj*> m_Bulletlist;
-	
+	list<CObj*>* m_Bulletlist;
+	INFO m_Posin;
+	DWORD Time;
 
-	
 };
 

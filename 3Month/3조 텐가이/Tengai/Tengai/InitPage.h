@@ -1,5 +1,5 @@
 #pragma once
-
+#include <random>
 class CInitPage
 {
 public:
@@ -10,10 +10,19 @@ public:
 	void    Update(void);
 	void    Render();
 	int        GetStart();
-
+	void    Mouse_Rect_Update();
+	void    Random_Rect_Set(int);
+	void    Random_Rect_Update();
 private:
 	RECT    m_START_RECT;
-	POINT    m_MouseXY;
-	int        m_bStart;
+
+	RECT    m_Mouse_Rect;
+	INFO    m_Mouse_Info;
+
+	RECT    m_Random_Rect[20];
+	POINT    m_Random_XY;
+
+	POINT   m_MouseXY;
+	int     m_bStart;
 
 };

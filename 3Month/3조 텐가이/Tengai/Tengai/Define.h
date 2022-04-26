@@ -9,6 +9,8 @@
 #define OBJ_DEAD 1
 #define OBJ_ALIVE 0
 
+
+
 extern HWND		g_hWnd;
 
 

@@ -20,11 +20,21 @@ public:
 		_Temp->Initialize();
 		return _Temp;
 	}
-	static CObj* Create(float _fX, float _fY, DIR _Dir = DIR_END)
+
+	static CObj* Create(float _fX, float _fY, TYPE _eType)
+	{
+		CObj* _Temp = new T;
+		_Temp->Set_Type(_eType);
+		_Temp->Set_Pos(_fX, _fY);
+		_Temp->Initialize();	
+		return _Temp;
+	}
+
+	static CObj* Create(float _fX, float _fY, float _fAngle)
 	{
 		CObj* _Temp = new T;
 		_Temp->Initialize();
-		_Temp->Set_Dir(_Dir);
+		_Temp->Set_Angle(_fAngle);
 		_Temp->Set_Pos(_fX, _fY);
 		return _Temp;
 	}

@@ -14,6 +14,8 @@ HINSTANCE hInst;                                // 현재 인스턴스입니다.
 WCHAR szTitle[MAX_LOADSTRING];                  // 제목 표시줄 텍스트입니다.
 WCHAR szWindowClass[MAX_LOADSTRING];            // 기본 창 클래스 이름입니다.
 HWND	g_hWnd;
+DWORD		dwOldTime = GetTickCount();
+
 
 // 이 코드 모듈에 들어 있는 함수의 정방향 선언입니다.
 ATOM                MyRegisterClass(HINSTANCE hInstance);
@@ -55,10 +57,15 @@ int APIENTRY wWinMain(_In_ HINSTANCE hInstance,
 
 	pMainGame->Initialize();
 
-	DWORD		dwOldTime = GetTickCount();
+	
 
 	while (true)
 	{
+		if (GetAsyncKeyState(VK_ESCAPE))
+		{
+			PostQuitMessage(0);
+			break;
+		}
 		if (PeekMessage(&msg, nullptr, 0, 0, PM_REMOVE))
 		{
 			if (WM_QUIT == msg.message)
@@ -74,16 +81,23 @@ int APIENTRY wWinMain(_In_ HINSTANCE hInstance,
 		else
 		{
 			
-				if (StartPage)
+			if (StartPage)
+			{
+				if (dwOldTime + 10 < GetTickCount())
 				{
 					StartPage->Update();
 					int iResult = StartPage->GetStart();
 					StartPage->Render();
-					if (iResult == 1) 
-					{			// 누른좌표가 맞을시 실행되는 코드.
-						delete StartPage;		// Safe_Delete 부분. 
-						StartPage = nullptr;	//누른좌표 맞을 시 더이상 StartPage라는 클래스는 존재하지 않아야 마우스 좌표를 계속 안받을수있음.
+
+					dwOldTime = GetTickCount();
+
+					if (iResult == 1)
+					{            // 누른좌표가 맞을시 실행되는 코드.
+						delete StartPage;        // Safe_Delete 부분. 
+						StartPage = nullptr;    //누른좌표 맞을 시 더이상 StartPage라는 클래스는 존재하지 않아야 마우스 좌표를 계속 안받을수있음.
 					}
+				}
+
 			}
 			else
 			{
@@ -94,6 +108,7 @@ int APIENTRY wWinMain(_In_ HINSTANCE hInstance,
 					pMainGame->Render();
 
 					dwOldTime = GetTickCount();
+					
 				}
 			}
 		}
@@ -177,6 +192,8 @@ LRESULT CALLBACK WndProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam)
             EndPaint(hWnd, &ps);
         }
         break;
+
+
 
     case WM_DESTROY:
         PostQuitMessage(0);

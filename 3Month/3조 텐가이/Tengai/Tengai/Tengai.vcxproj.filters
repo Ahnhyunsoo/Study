@@ -34,6 +34,12 @@
     <Filter Include="CInitPage">
       <UniqueIdentifier>{ce610ee1-b9c5-4ca8-adfa-a2102b174b07}</UniqueIdentifier>
     </Filter>
+    <Filter Include="CPaint">
+      <UniqueIdentifier>{139aa2f1-eee2-4b03-a8ae-d0d49b3d2a4c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="CBullet">
+      <UniqueIdentifier>{c99afb40-ae9e-44da-b46a-b33a8aead199}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <Text Include="ReadMe.txt" />
@@ -84,6 +90,15 @@
     <ClInclude Include="InitPage.h">
       <Filter>CInitPage</Filter>
     </ClInclude>
+    <ClInclude Include="Paint.h">
+      <Filter>CPaint</Filter>
+    </ClInclude>
+    <ClInclude Include="Bullet.h">
+      <Filter>CBullet</Filter>
+    </ClInclude>
+    <ClInclude Include="Monster.h">
+      <Filter>CMonster</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="stdafx.cpp">
@@ -106,6 +121,15 @@
     </ClCompile>
     <ClCompile Include="InitPage.cpp">
       <Filter>CInitPage</Filter>
+    </ClCompile>
+    <ClCompile Include="Paint.cpp">
+      <Filter>CPaint</Filter>
+    </ClCompile>
+    <ClCompile Include="Bullet.cpp">
+      <Filter>CBullet</Filter>
+    </ClCompile>
+    <ClCompile Include="Monster.cpp">
+      <Filter>CMonster</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
