@@ -1,0 +1,4 @@
+﻿  Player.cpp
+c:\users\ahs\desktop\jusin\3month\20220428\defaultwindow\default\player.cpp(84): warning C4305: '+=': 'double'에서 'float'(으)로 잘립니다.
+  Default.vcxproj -> C:\Users\ahs\Desktop\jusin\3Month\20220428\DefaultWindow\Debug\Default.exe
+  Default.vcxproj -> C:\Users\ahs\Desktop\jusin\3Month\20220428\DefaultWindow\Debug\Default.pdb (Full PDB)
