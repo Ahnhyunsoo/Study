@@ -31,7 +31,7 @@ void CMainGame::Initialize(void)
 	}
 
 	dynamic_cast<CMonster*>(m_pMonster)->Set_Player(m_pPlayer);
-
+	
 }
 
 void CMainGame::Update(void)
@@ -112,4 +112,16 @@ x 와 y 는 고정된 좌표에서는 가능하지만 이동하면 좌표가 바뀌기때문에
 삼각함수만 이용해서 좌표를 구할 수 있다. 상수가 아니라 수식 상태로 나온다.
 Q의 위치를 예측할수있는 공식을 구해라
 힌트 : Z축 회전
+
+
+P x y z 
+
+Q x y z
+
+angle A
+
+x * cos(A) ,y * sin(A) , z
+
+좌표상으로 봤을 때 x와 y가 모두 이동했으므로 z축을 기준으로 회전시켰다는걸 유추할 수 있다. 끝
+
 */

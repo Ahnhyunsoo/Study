@@ -18,5 +18,6 @@ public:
 
 private:
 	CObj*		m_pPlayer = nullptr;
+	D3DXVECTOR3 m_vForword;
 };
 

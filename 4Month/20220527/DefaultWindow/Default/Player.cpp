@@ -36,6 +36,9 @@ void CPlayer::Render(HDC hDC)
 		int(m_tInfo.vPos.y - 50.f),
 		int(m_tInfo.vPos.x + 50.f),
 		int(m_tInfo.vPos.y + 50.f));
+
+	MoveToEx(hDC, 0, 0, nullptr);
+	LineTo(hDC, m_tInfo.vPos.x, m_tInfo.vPos.y);
 }
 
 void CPlayer::Release(void)
