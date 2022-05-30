@@ -64,7 +64,6 @@ void CMonster::Update(void)
 
 	float a = (m_tInfo.vDir.x * m_vForword.x) + (m_tInfo.vDir.y * m_vForword.y) + (m_tInfo.vDir.z * m_vForword.z);
 
-
 	float angle = acosf(a);
 	//float angle2 = asinf(a);
 
@@ -83,16 +82,42 @@ void CMonster::Update(void)
 
 void CMonster::Render(HDC hDC)
 {
+	m_tInfo.vDir = m_pPlayer->Get_Info().vPos - m_tInfo.vPos;
+
+	float	fLength = sqrtf(m_tInfo.vDir.x * m_tInfo.vDir.x + m_tInfo.vDir.y * m_tInfo.vDir.y);
+
+	m_tInfo.vDir.x /= fLength;
+	m_tInfo.vDir.y /= fLength;
+	m_tInfo.vDir.z = 0.f;
+	//	D3DXVec3Normalize(&m_tInfo.vDir, &m_tInfo.vDir);
+
+	//float a = D3DXVec3Dot(&m_tInfo.vDir,  &m_vForword);
+
+	float a = (m_tInfo.vDir.x * m_vForword.x) + (m_tInfo.vDir.y * m_vForword.y) + (m_tInfo.vDir.z * m_vForword.z);
+
+
+	float angle = acosf(a);
+	if (m_tInfo.vPos.y < m_pPlayer->Get_Info().vPos.y)
+	{
+		angle *= -1.f;
+	}
+
 	Ellipse(hDC,
 		int(m_tInfo.vPos.x - 50.f),
 		int(m_tInfo.vPos.y - 50.f),
 		int(m_tInfo.vPos.x + 50.f),
 		int(m_tInfo.vPos.y + 50.f));
 
-	MoveToEx(hDC, 0, 0, nullptr);
-	LineTo(hDC, m_tInfo.vPos.x, m_tInfo.vPos.y);
+	MoveToEx(hDC, m_tInfo.vPos.x, m_tInfo.vPos.y, nullptr);
+	LineTo(hDC, m_tInfo.vPos.x+cosf(angle)*100, m_tInfo.vPos.y - sinf(angle)*100);
 }
 
 void CMonster::Release(void)
 {
 }
+
+
+/*
+ '
+*/
+
