@@ -86,6 +86,8 @@ void CPlayer::Render(HDC hDC)
 	Ellipse(hDC, m_ptTank[2].x - 5, m_ptTank[2].y - 5, m_ptTank[2].x + 5, m_ptTank[2].y + 5);
 
 
+	Rectangle(hDC, m_tInfo.vPos.x-20, m_tInfo.vPos.y-20, m_tInfo.vPos.x + 15, m_tInfo.vPos.y + 15);
+
 	MoveToEx(hDC, TankPos.x, TankPos.y, nullptr);
 	LineTo(hDC, TankPos.x + cosf(angle)*60, TankPos.y - sinf(angle)*60);
 }
