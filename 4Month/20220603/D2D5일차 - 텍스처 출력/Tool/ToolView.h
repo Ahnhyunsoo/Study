@@ -21,6 +21,9 @@ public:
 public:
 	void RenderTexture();
 	const TEXINFO*	pTexInfo[30];
+	int m_iTexture[TILEY][TILEX];
+	int m_iTextNum;
+	D3DXVECTOR3 m_Vec[TILEY][TILEX];
 // 재정의입니다.
 public:
 	virtual void OnDraw(CDC* pDC);  // 이 뷰를 그리기 위해 재정의되었습니다.

@@ -53,8 +53,9 @@ CToolView::~CToolView()
 
 void CToolView::OnInitialUpdate()
 {
+	
 	CView::OnInitialUpdate();
-
+	
 	// TODO: 여기에 특수화된 코드를 추가 및/또는 기본 클래스를 호출합니다.
 
 	g_hWnd = m_hWnd;
@@ -80,39 +81,52 @@ void CToolView::OnInitialUpdate()
 		AfxMessageBox(L"Tile Image Insert failed");
 		return;
 	}
-
+	for (int i = 0; i < TILEY; ++i)
+	{
+		for (int j = 0; j < TILEX; ++j)
+		{
+			m_iTexture[i][j] = 2;
+		}
+	}
 }
 
 // CToolView 그리기
 
 void CToolView::RenderTexture()
 {
+	bool Gap = false;
 	//20 30
 	for (int i = 0; i < TILEX; ++i)
 	{
 		for (int j = 0; j < TILEY; ++j)
 		{
-			pTexInfo[i] = CTextureMgr::Get_Instance()->Get_Texture(L"Terrain", L"Tile", 2);
+			pTexInfo[j] = CTextureMgr::Get_Instance()->Get_Texture(L"Terrain", L"Tile", m_iTexture[i][j]);
 
 			if (nullptr == pTexInfo)
 				return;
 
-			float		fX = pTexInfo[i]->tImgInfo.Width / 2.f;
-			float		fY = pTexInfo[i]->tImgInfo.Height / 2.f;
-			if (j % 2 == 0)
+			float		fX = pTexInfo[j]->tImgInfo.Width / 2.f;
+			float		fY = pTexInfo[j]->tImgInfo.Height / 2.f;
+			float		fI = ((i - 10) * int(pTexInfo[j]->tImgInfo.Width));
+			float		fI2 = ((i - 10) * int(pTexInfo[j]->tImgInfo.Width) - int(pTexInfo[j]->tImgInfo.Width*0.5));
+			
+			if (!Gap)
 			{
-				m_pDevice->Get_Sprite()->Draw(pTexInfo[i]->pTexture,	// 그리고자 하는 텍스처
+				Gap = true;
+				m_pDevice->Get_Sprite()->Draw(pTexInfo[j]->pTexture,	// 그리고자 하는 텍스처
 					nullptr, // 출력할 이미지 영역에 대한 rect 포인터, null인 경우 이미지의 0, 0 기준으로 출력
 					&D3DXVECTOR3(fX, fY, 0.f), // 출력할 이미지 중심 축에 대한 vec3 구조체 포인터, null인 경우 0, 0이 중심 좌표
-					&D3DXVECTOR3(float((i - 10) * int(pTexInfo[i]->tImgInfo.Width)), float((j - 15) * int(pTexInfo[i]->tImgInfo.Height*0.5)), 0.f), // 위치 좌표에 대한 vec3 구조체 포인터, null인 경우 스크린 상 0,0 좌표에 출력
+					&D3DXVECTOR3(fI, float((j - 15) * int(pTexInfo[j]->tImgInfo.Height*0.5)), 0.f), // 위치 좌표에 대한 vec3 구조체 포인터, null인 경우 스크린 상 0,0 좌표에 출력
 					D3DCOLOR_ARGB(255, 255, 255, 255)); //출력할 원본 이미지와 섞을 색상 값, 출력 시 섞은 색상이 반영, 0xffffffff를 넘겨주면 원본 색상 유지된 상태로 출력
+			
 			}
 			else
 			{
-				m_pDevice->Get_Sprite()->Draw(pTexInfo[i]->pTexture,	// 그리고자 하는 텍스처
+				Gap = false;
+				m_pDevice->Get_Sprite()->Draw(pTexInfo[j]->pTexture,	// 그리고자 하는 텍스처
 					nullptr, // 출력할 이미지 영역에 대한 rect 포인터, null인 경우 이미지의 0, 0 기준으로 출력
 					&D3DXVECTOR3(fX, fY, 0.f), // 출력할 이미지 중심 축에 대한 vec3 구조체 포인터, null인 경우 0, 0이 중심 좌표
-					&D3DXVECTOR3(float((i - 10) * int(pTexInfo[i]->tImgInfo.Width)), float((j - 15) * int(pTexInfo[i]->tImgInfo.Height*0.5)), 0.f), // 위치 좌표에 대한 vec3 구조체 포인터, null인 경우 스크린 상 0,0 좌표에 출력
+					&D3DXVECTOR3(fI2, float((j - 15) * int(pTexInfo[j]->tImgInfo.Height*0.5)), 0.f), // 위치 좌표에 대한 vec3 구조체 포인터, null인 경우 스크린 상 0,0 좌표에 출력
 					D3DCOLOR_ARGB(255, 255, 255, 255)); //출력할 원본 이미지와 섞을 색상 값, 출력 시 섞은 색상이 반영, 0xffffffff를 넘겨주면 원본 색상 유지된 상태로 출력
 			}
 			
@@ -120,6 +134,7 @@ void CToolView::RenderTexture()
 		}
 	}
 }
+
 
 void CToolView::OnDraw(CDC* /*pDC*/)
 {
@@ -209,9 +224,17 @@ CToolDoc* CToolView::GetDocument() const // 디버그되지 않은 버전은 인라인으로 지
 
 void CToolView::OnLButtonDown(UINT nFlags, CPoint point)
 {
-	// TODO: 여기에 메시지 처리기 코드를 추가 및/또는 기본값을 호출합니다.
-
-
+	
 
 	CView::OnLButtonDown(nFlags, point);
+
+	for (int i = 0; i < TILEY; ++i)
+	{
+		for (int j = 0; j < TILEX; ++j)
+		{
+			//기울기를 1개 구해야한다. 첫번째 기울기를 구하기 x
+		}
+	}	
+	
+	Invalidate();
 }
