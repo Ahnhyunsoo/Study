@@ -20,9 +20,11 @@ public:
 // 작업입니다.
 public:
 	void RenderTexture();
-	const TEXINFO*	pTexInfo[30];
+	const TEXINFO*	pTexInfo[TILEY][TILEX];
 	int m_iTexture[TILEY][TILEX];
 	int m_iTextNum;
+	bool m_Gap;
+	POINT m_pt;
 	D3DXVECTOR3 m_Vec[TILEY][TILEX];
 // 재정의입니다.
 public:

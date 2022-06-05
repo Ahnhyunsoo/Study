@@ -59,7 +59,7 @@ void CToolView::OnInitialUpdate()
 	// TODO: 여기에 특수화된 코드를 추가 및/또는 기본 클래스를 호출합니다.
 
 	g_hWnd = m_hWnd;
-
+	m_Gap = false;
 	if (FAILED(m_pDevice->Initialize()))
 	{
 		AfxMessageBox(L"m_pDevice 생성 실패");
@@ -81,11 +81,31 @@ void CToolView::OnInitialUpdate()
 		AfxMessageBox(L"Tile Image Insert failed");
 		return;
 	}
+
+
 	for (int i = 0; i < TILEY; ++i)
 	{
 		for (int j = 0; j < TILEX; ++j)
 		{
 			m_iTexture[i][j] = 2;
+			pTexInfo[i][j] = CTextureMgr::Get_Instance()->Get_Texture(L"Terrain", L"Tile", m_iTexture[i][j]);
+			
+			if (i % 2 == 1)
+			{
+				//m_Vec[i][j] = { 0,0,0 };
+				m_Vec[i][j] = { 
+					(float(j) - 10.f) * float(pTexInfo[i][j]->tImgInfo.Width),
+					(float(i) - 15.f) * float(pTexInfo[i][j]->tImgInfo.Height * 0.5f),
+					0.f };
+			}
+			else
+			{
+				//m_Vec[i][j] = { 0,0,0 };
+				m_Vec[i][j] = { 
+					(float(j) - 10.f) * float((pTexInfo[i][j]->tImgInfo.Width)) - ((pTexInfo[i][j]->tImgInfo.Width)*0.5f),
+					(float(i) - 15.f) * float(pTexInfo[i][j]->tImgInfo.Height * 0.5f),
+					0.f };
+			}
 		}
 	}
 }
@@ -94,49 +114,32 @@ void CToolView::OnInitialUpdate()
 
 void CToolView::RenderTexture()
 {
-	bool Gap = false;
+
 	//20 30
-	for (int i = 0; i < TILEX; ++i)
+	for (int i = 0; i < TILEY; ++i)
 	{
-		for (int j = 0; j < TILEY; ++j)
+		for (int j = 0; j < TILEX; ++j)
 		{
-			pTexInfo[j] = CTextureMgr::Get_Instance()->Get_Texture(L"Terrain", L"Tile", m_iTexture[i][j]);
+			pTexInfo[i][j] = CTextureMgr::Get_Instance()->Get_Texture(L"Terrain", L"Tile", m_iTexture[i][j]);
 
 			if (nullptr == pTexInfo)
 				return;
 
-			float		fX = pTexInfo[j]->tImgInfo.Width / 2.f;
-			float		fY = pTexInfo[j]->tImgInfo.Height / 2.f;
-			float		fI = ((i - 10) * int(pTexInfo[j]->tImgInfo.Width));
-			float		fI2 = ((i - 10) * int(pTexInfo[j]->tImgInfo.Width) - int(pTexInfo[j]->tImgInfo.Width*0.5));
-			
-			if (!Gap)
-			{
-				Gap = true;
-				m_pDevice->Get_Sprite()->Draw(pTexInfo[j]->pTexture,	// 그리고자 하는 텍스처
+			float		fX = pTexInfo[i][j]->tImgInfo.Width / 2.f;
+			float		fY = pTexInfo[i][j]->tImgInfo.Height / 2.f;
+		
+				m_pDevice->Get_Sprite()->Draw(pTexInfo[i][j]->pTexture,	// 그리고자 하는 텍스처
 					nullptr, // 출력할 이미지 영역에 대한 rect 포인터, null인 경우 이미지의 0, 0 기준으로 출력
 					&D3DXVECTOR3(fX, fY, 0.f), // 출력할 이미지 중심 축에 대한 vec3 구조체 포인터, null인 경우 0, 0이 중심 좌표
-					&D3DXVECTOR3(fI, float((j - 15) * int(pTexInfo[j]->tImgInfo.Height*0.5)), 0.f), // 위치 좌표에 대한 vec3 구조체 포인터, null인 경우 스크린 상 0,0 좌표에 출력
+					&(m_Vec[i][j]), // 위치 좌표에 대한 vec3 구조체 포인터, null인 경우 스크린 상 0,0 좌표에 출력
 					D3DCOLOR_ARGB(255, 255, 255, 255)); //출력할 원본 이미지와 섞을 색상 값, 출력 시 섞은 색상이 반영, 0xffffffff를 넘겨주면 원본 색상 유지된 상태로 출력
-			
-			}
-			else
-			{
-				Gap = false;
-				m_pDevice->Get_Sprite()->Draw(pTexInfo[j]->pTexture,	// 그리고자 하는 텍스처
-					nullptr, // 출력할 이미지 영역에 대한 rect 포인터, null인 경우 이미지의 0, 0 기준으로 출력
-					&D3DXVECTOR3(fX, fY, 0.f), // 출력할 이미지 중심 축에 대한 vec3 구조체 포인터, null인 경우 0, 0이 중심 좌표
-					&D3DXVECTOR3(fI2, float((j - 15) * int(pTexInfo[j]->tImgInfo.Height*0.5)), 0.f), // 위치 좌표에 대한 vec3 구조체 포인터, null인 경우 스크린 상 0,0 좌표에 출력
-					D3DCOLOR_ARGB(255, 255, 255, 255)); //출력할 원본 이미지와 섞을 색상 값, 출력 시 섞은 색상이 반영, 0xffffffff를 넘겨주면 원본 색상 유지된 상태로 출력
-			}
-			
-		//
+
 		}
 	}
 }
 
 
-void CToolView::OnDraw(CDC* /*pDC*/)
+void CToolView::OnDraw(CDC* pDC)
 {
 	CToolDoc* pDoc = GetDocument();
 	ASSERT_VALID(pDoc);
@@ -162,10 +165,8 @@ void CToolView::OnDraw(CDC* /*pDC*/)
 	RenderTexture();
 
 
-	
-
 	m_pDevice->Render_End();
-
+	pDC->Rectangle(m_pt.x -5,m_pt.y-5,m_pt.x+5,m_pt.y+5);
 }
 
 #pragma region 불필요
@@ -225,7 +226,8 @@ CToolDoc* CToolView::GetDocument() const // 디버그되지 않은 버전은 인라인으로 지
 void CToolView::OnLButtonDown(UINT nFlags, CPoint point)
 {
 	
-
+	m_pt.x = (point.x - 400.f) ;
+	m_pt.y = (point.y - 300.f) ;
 	CView::OnLButtonDown(nFlags, point);
 
 	for (int i = 0; i < TILEY; ++i)
@@ -233,8 +235,34 @@ void CToolView::OnLButtonDown(UINT nFlags, CPoint point)
 		for (int j = 0; j < TILEX; ++j)
 		{
 			//기울기를 1개 구해야한다. 첫번째 기울기를 구하기 x
+			D3DXVECTOR3 TempLeft = { m_Vec[i][j].x - (pTexInfo[i][j]->tImgInfo.Width * 0.5f), m_Vec[i][j].y, 0.f};
+			D3DXVECTOR3 TempTop = { m_Vec[i][j].x, m_Vec[i][j].y - pTexInfo[i][j]->tImgInfo.Height * 0.5f, 0.f};
+			D3DXVECTOR3 TempRight = { m_Vec[i][j].x + (pTexInfo[i][j]->tImgInfo.Width * 0.5f), m_Vec[i][j].y, 0.f};
+			D3DXVECTOR3 TempBottom = { m_Vec[i][j].x, m_Vec[i][j].y + pTexInfo[i][j]->tImgInfo.Height * 0.5f, 0.f };
+
+			float Diagonal1 = (TempLeft.y - TempTop.y) / (TempLeft.x - TempTop.x);
+			float Diagonal2 = (TempTop.y - TempRight.y) / (TempTop.x - TempRight.x);
+			float Diagonal3 = (TempBottom.y - TempRight.y) / (TempBottom.x - TempRight.x);
+			float Diagonal4 = (TempLeft.y - TempBottom.y) / (TempLeft.x - TempBottom.x);
+			
+			float fB1 = TempTop.y - (Diagonal1 * TempTop.x);
+			float fB2 = TempTop.y - (Diagonal2 * TempTop.x);
+			float fB3 = TempBottom.y - (Diagonal3 * TempBottom.x);
+			float fB4 = TempBottom.y - (Diagonal4 * TempBottom.x);
+
+			// y = Diagonal1*x + fB1
+
+			if (Diagonal1 * m_pt.x + fB1 < m_pt.y && Diagonal4 * m_pt.x + fB4 > m_pt.y
+				&& Diagonal2 * m_pt.x + fB2 < m_pt.y && Diagonal3 * m_pt.x + fB3 > m_pt.y)
+			{
+				m_iTexture[i][j] += 1;
+				if (m_iTexture[i][j] > 35)
+					m_iTexture[i][j] = 0;
+			}
+
 		}
 	}	
+	
 	
 	Invalidate();
 }
