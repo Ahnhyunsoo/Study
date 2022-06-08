@@ -63,6 +63,24 @@ HRESULT CTextureMgr::InsertTexture(const TCHAR * pFilePath, TEXTYPE eType, const
 		}
 		m_MapTex.emplace(pObjKey, pTexture);
 	}
+	else
+	{
+		switch (eType)
+		{
+		case TEX_SINGLE:
+			AfxMessageBox(pFilePath);
+			return E_FAIL;
+			break;
+
+		case TEX_MULTI:
+			if (FAILED(m_MapTex[pObjKey]->InsertTexture(pFilePath, pStateKey, iCount)))
+			{
+				AfxMessageBox(pFilePath);
+				return E_FAIL;
+			}
+			break;
+		}
+	}
 		
 
 	return S_OK;
