@@ -127,6 +127,8 @@ void CToolView::OnDraw(CDC* /*pDC*/)
 	if (!pDoc)
 		return;
 
+	
+
 	// TODO: 여기에 원시 데이터에 대한 그리기 코드를 추가합니다.
 
 	//pDC->Rectangle(100, 100, 200, 200);
@@ -173,6 +175,7 @@ void CToolView::OnDraw(CDC* /*pDC*/)
 	m_pDevice->Render_Begin();
 
 	m_pTerrain->Render();
+	
 	
 	m_pDevice->Render_End();
 

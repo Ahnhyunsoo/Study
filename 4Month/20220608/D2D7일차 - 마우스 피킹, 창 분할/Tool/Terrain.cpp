@@ -56,6 +56,7 @@ void CTerrain::Render(void)
 	TCHAR		szBuf[MIN_STR] = L"";
 	int			iIndex = 0;
 
+
 	for (auto& iter : m_vecTile)
 	{
 		D3DXMatrixIdentity(&matWorld);
@@ -83,7 +84,7 @@ void CTerrain::Render(void)
 													D3DCOLOR_ARGB(255, 255, 255, 255));
 
 		swprintf_s(szBuf, L"%d", iIndex);
-
+		
 		CDevice::Get_Instance()->Get_Font()->DrawTextW(CDevice::Get_Instance()->Get_Sprite(),
 			szBuf,
 			lstrlen(szBuf),
@@ -91,6 +92,8 @@ void CTerrain::Render(void)
 			0,
 			D3DCOLOR_ARGB(255, 0, 0, 0));		
 
+	
+	
 		/*DrawTextW : 스프라이트 객체를 이용하여 폰트를 출력하는 함수
 		1. 폰트 출력에 필요한 스프라이트 객체
 		2. 출력할 문자열
@@ -101,7 +104,26 @@ void CTerrain::Render(void)
 	
 		++iIndex;
 	}	
+	/*	D3DXMATRIX mat1, mat2,mat3;
+
+
+	D3DXMatrixIdentity(&mat1);
+	D3DXMatrixScaling(&mat2, 2.f, 2.f, 1.f);
+	D3DXMatrixTranslation(&mat3, 100 - m_pMainView->GetScrollPos(0),
+		100 - m_pMainView->GetScrollPos(1), 
+		0.f);
+
+	mat1 = mat2 *  mat3;
 	
+	TCHAR		szBuf2[MIN_STR];
+	swprintf_s(szBuf2, L"영웅짱짱맨");
+	CDevice::Get_Instance()->Get_Sprite()->SetTransform(&mat1); 
+	CDevice::Get_Instance()->Get_Font()->DrawTextW(CDevice::Get_Instance()->Get_Sprite(),
+		szBuf2,
+		lstrlen(szBuf2),
+		nullptr,
+		0,
+		D3DCOLOR_ARGB(255, 255, 0, 255));*/
 
 
 }
@@ -118,17 +140,32 @@ void CTerrain::MiniRender(void)
 	D3DXMATRIX		matWorld, matScale, matTrans;
 
 	TCHAR		szBuf[MIN_STR] = L"";
+
 	int			iIndex = 0;
 
 	for (auto& iter : m_vecTile)
 	{
+		/*D3DXMatrixIdentity(&matWorld);
+		D3DXMatrixScaling(&matScale, 0.306f, 0.59f, 1.f);
+		D3DXMatrixTranslation(&matTrans, iter->vPos.x * 0.306f,
+		iter->vPos.y * 0.59f,
+		iter->vPos.z);*/
+		/*D3DXMatrixIdentity(&matWorld);
+		D3DXMatrixScaling(&matScale, 1.f / (TILECX*TILEX) * WINCX, 1.f / (TILECY*TILEY) * WINCY, 1.f);
+		D3DXMatrixTranslation(&matTrans, iter->vPos.x / (TILECX*TILEX) * WINCX,
+			iter->vPos.y / (TILECY*TILEY) * WINCY,
+			iter->vPos.z);*/
+		//1,f / (TILECX*TILEX) * WINCX 
+
 		D3DXMatrixIdentity(&matWorld);
-		D3DXMatrixScaling(&matScale, 0.31f, 0.6f, 1.f);
-		D3DXMatrixTranslation(&matTrans, iter->vPos.x * 0.31f,
-		iter->vPos.y * 0.6f,
-		iter->vPos.z);
+		D3DXMatrixScaling(&matScale, 0.3f , 0.6f , 1.f);
+		D3DXMatrixTranslation(&matTrans, iter->vPos.x ,
+			iter->vPos.y,
+			iter->vPos.z);
+		 
 		
-		matWorld = matScale *  matTrans;
+		matWorld =   matTrans * matScale;
+
 
 		const TEXINFO*		pTexInfo = CTextureMgr::Get_Instance()->Get_Texture(L"Terrain", L"Tile", iter->byDrawID);
 		
@@ -193,7 +230,7 @@ bool CTerrain::Picking(const D3DXVECTOR3 & vPos, const int & iIndex)
 	// 12, 3, 6, 9 시 방향 순서로 위치를 잡음
 	float	fGradient[4] = {
 
-		(TILECY / 2.f) / (TILECX / 2.f) * -1.f,
+		(TILECY / 2.f) / (TILECX / 2.f) * -1.f, 
 		(TILECY / 2.f) / (TILECX / 2.f),
 		(TILECY / 2.f) / (TILECX / 2.f) * -1.f,
 		(TILECY / 2.f) / (TILECX / 2.f)
@@ -282,7 +319,7 @@ bool CTerrain::Picking_Dot(const D3DXVECTOR3& vPos, const int& iIndex)
 		D3DXVec3Normalize(&vNormal[i], &vNormal[i]);
 		D3DXVec3Normalize(&vMouseDir[i], &vMouseDir[i]);
 	}
-
+	
 	for (int i = 0; i < 4; ++i)
 	{
 		// 양수인 경우 예각이어서 타일 외부에 피킹한 꼴인 셈
