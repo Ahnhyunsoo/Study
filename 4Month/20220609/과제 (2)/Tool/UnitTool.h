@@ -44,7 +44,7 @@ public:
 	CString m_strSearch;
 	int m_iHp;
 	int m_iAttack;
-
+	int m_iTest;
 	// control
 	CListBox m_ListBox;
 	CButton m_Radio[3];
@@ -59,6 +59,7 @@ public:
 	
 	
 	afx_msg void OnDeleteClicked();
+
 };
 
 // 저장, 불러오기, 삭제

@@ -18,6 +18,7 @@ CUnitTool::CUnitTool(CWnd* pParent /*=NULL*/)
 	, m_strName(_T(""))
 	, m_iHp(0)
 	, m_iAttack(0)
+	, m_iTest(0)
 {
 
 }
@@ -39,6 +40,8 @@ void CUnitTool::DoDataExchange(CDataExchange* pDX)
 	DDX_Text(pDX, IDC_EDIT4, m_iHp);
 	DDX_Text(pDX, IDC_EDIT5, m_iAttack);
 	DDX_Text(pDX, IDC_EDIT6, m_strSearch);
+	DDX_Text(pDX, IDC_EDIT7, m_iTest);
+
 	DDX_Control(pDX, IDC_LIST1, m_ListBox);
 	DDX_Control(pDX, IDC_RADIO1, m_Radio[0]);
 	DDX_Control(pDX, IDC_RADIO2, m_Radio[1]);
@@ -47,6 +50,7 @@ void CUnitTool::DoDataExchange(CDataExchange* pDX)
 	DDX_Control(pDX, IDC_CHECK1, m_Check[0]);
 	DDX_Control(pDX, IDC_CHECK2, m_Check[1]);
 	DDX_Control(pDX, IDC_CHECK3, m_Check[2]);
+	
 }
 
 
