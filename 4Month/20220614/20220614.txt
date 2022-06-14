@@ -1,0 +1,29 @@
+프로퍼티시트
+
+CPropertySeet 클래스로 생성
+
+CPropertyPage 클래스로 페이지생성
+
+MySeet에 Page들 추가
+
+MyPage1 변수
+MyPage2 변수
+
+패스파인더 *****
+경로를 추출해서 경로에있는 리소스를 가져오겠다.
+
+PathRemoveFileSpec // 현재 경로에서 가장 마지막 경로를 잘라냄 
+
+절대경로 = c나 d부터 오는 절대적인경로
+상대경로 = ../ 해서 나오는 상대적인 경로
+
+넘겨줄 때는 파일형태로 넘겨준다.
+
+TextMgr예외처리
+
+else if(TEX_MULTI === eType)
+iter->second->InstertTexture(pFilePath, pStateKey, iCount);
+
+오늘의 과제 스프라이트를 돌리고 클릭한 타일로 이동하라.
+
+깊이 우선탐색과 너비 우선탐색에 대해 공부해와라.
