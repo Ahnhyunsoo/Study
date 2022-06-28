@@ -83,7 +83,7 @@ void CLogo::Render_Scene()
 		nullptr,
 		0,
 		D3DCOLOR_ARGB(255, 0, 0, 0));
-
+	
 }
 
 void CLogo::Release_Scene()
