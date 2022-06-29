@@ -1,0 +1,69 @@
+0628 클라이언트, 엔진 만드는과정
+
+빈솔루션 생성
+
+Win32APi프로젝트 생성 (Client)
+
+Win32API DLL 빈프로젝트 생성 (Engine)
+
+프로젝트별로 폴더정리 Bin, Default, Private, Public 기본적으로 생성된 파일은 Default에 넣어서 정리하기
+
+클라이언트, 엔진 속성들어가서 출력디렉터리를 ../Bin으로 설정해주기 ../Bin을 한 이유는 
+
+현재 프로젝트경로가 Default기때문에 ../로 한칸 올라간후 Bin폴더로 경로를 잡아준것이다.
+
+클라이언트 C/C++ 일반탭에서 ../../Reference/Headers 포함 -> 추가로 포함할 디렉터리의 경로를 포함해준것 이작업으로 인해서
+
+엔진에 있는 경로를 작성해줄필요없이 헤더명만 작성해주면 바로 인클루드 가능하다. ex ( ../../Engine/Public/xx.h)이작업을 xx.h로 가능하게 만들어준다.
+
+링커 일반 탭에서 추가 라이브러리 디렉터리에서 ../../Reference/Librarys를 포함해준다. 위와 같은 결과
+
+엔진프로젝트 링커 입력 탭에서 추가종속성에 포함하고자 하는 라이브러리를 설정해준다. d3d9.lib, d3dx9.lib
+
+클라이언트프로젝트 링커 입력탭에서 추가종속성에 Engine.lib를 포함해준다. 이 엔진라이브러리엔 엔진에서포함한 라이브러리도 포함되어있다.
+
+GetMessage PeekMessage로 변경해주기
+
+Client에 전역핸들 선언하고 Client_Defines 작성해주기
+
+엔진프로젝트에 최상위 부모클래스인 CBase클래스를 작성해준다. (Reference와 관련된 변수와 함수들 작성)
+
+엔진에 디파인들 포함해주기 각종 엔진 디파인들 작성 Defines, Function, Functor, Macro, Struct, Typedef등등
+
+엔진프로젝트 VC++ 디렉터리에서 포함디렉터리 $(DXSDK_DIR)\Include 포함 라이브러리디렉터리 $(DXSDK_DIR)\Lib\x86 포함해주기
+
+Client폴더에 Engine에서 나온 DLL과 헤더 라이브러리 포함해주기
+
+UpdateLib 배치파일 만들어주기
+
+Client MainApp 클래스 작성 (API때 MainGame과 유사하다. 무슨 구성이 있는지 무슨구조로 짜여있는지 파악하기)
+MainApp을 작성하기위해선 Level이나 Device등 여러가지 클래스가 필요하기때문에 다른 클래스를 먼저 구현한다.
+
+우선 Graphic_Device를 구현하자. Com객체의 역할과 디바이스 생성과정 및 함수들의 역할을 파악해야한다.
+릴리즈해줄때 순서도 기억해야한다. Font는 Sprite가필요하고 Sprite는 Device가 필요하기때문에 순서를 잘 지켜주는게 좋다.
+
+엔진프로젝트에 Level클래스와 LevelManager클래스를 구현한다. API때 Scene과 매우 유사하다.
+Level클래스는 클라이언트의 레벨 객체들이 모두 상속받아야하는 부모클래스이다.
+LevelManager에서는 현재 레벨을 저장하는변수가 존재하고 이 레벨을 교체해주는 함수가 존재한다. 그리고 레벨의 랜더와 틱을 호출해준다.
+
+이제 가장중요한 핵심 클래스인 GameInstance 클래스를 작성하자.
+여기서 래퍼런스카운트와 관련된 함수들 Safe_Release와 Release와 Free함수의 관계와 구조를 잘 파악해야한다. 이거 파악못하면 큰일난다.
+우선 Safe_Release 템플릿함수를 실행하면 해당 객체의 Release함수를 호출하게된다. 이 Release함수는 CBase의 상속을받는 함수며
+이함수내에서 래퍼런스카운트를 체크해서 0이아니면 감소시키고 0이면 Free함수를 호출해주고 객체를 삭제해준다.
+Release_Engine함수를 따로 만든 이유는 싱글톤객체의 주소를 공유받았기 때문에 공유해준 해당 싱글톤객체의 래퍼런스카운트는 1이다.
+때문에 Free함수에서 Release를 호출한다해도 래퍼런스카운트가 감소할뿐 삭제가 되지 않는다.
+하지만 매크로로 구성해둔 전역함수인 Destroy_Instance를 호출하면 해결된다. 그 이유는 Destroy_Instance도 Release를 호출하기 때문이다.
+Free함수를통해 Release를 호출해서 싱글톤객체들의 래퍼런스카운트를 0으로 만들어준 후 Release_Engine을 호출하면
+래퍼런스카운트가0이기 때문에 객체들이 삭제된다.
+
+이제 클라이언트에 레벨객체들을 생성해보자. GamePlay, Logo, Loading 이렇게 3가지를 만들고
+로딩도중에 화면을 갱신해줄 로더 클래스도 만들어준다.
+
+마무리로 MainApp 클래스 cpp 작성해주면 완료
+
+
+
+
+
+
+

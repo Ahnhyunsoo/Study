@@ -1,0 +1,34 @@
+﻿  TextManager.cpp
+c:\users\ahs\desktop\study\5month\20220628\0628framework\engine\public\engine_functor.h(20): error C2065: 'm_pStrm': 선언되지 않은 식별자입니다.
+  c:\program files (x86)\microsoft visual studio 14.0\vc\include\algorithm(87): note: 컴파일 중인 함수 템플릿 인스턴스화 'bool Engine::CTag_Finder::operator ()<std::pair<const _Kty,_Ty>>(T &)'에 대한 참조를 확인하십시오.
+          with
+          [
+              _Kty=std::wstring,
+              _Ty=Engine::CTexture *,
+              T=std::pair<const std::wstring,Engine::CTexture *>
+          ]
+  c:\program files (x86)\microsoft visual studio 14.0\vc\include\algorithm(98): note: 컴파일 중인 함수 템플릿 인스턴스화 '_InIt std::_Find_if_unchecked<std::_Tree_unchecked_iterator<_Mytree>,_Pr>(_InIt,_InIt,_Pr &)'에 대한 참조를 확인하십시오.
+          with
+          [
+              _InIt=std::_Tree_unchecked_iterator<std::_Tree_val<std::_Tree_simple_types<std::pair<const std::wstring,Engine::CTexture *>>>>,
+              _Mytree=std::_Tree_val<std::_Tree_simple_types<std::pair<const std::wstring,Engine::CTexture *>>>,
+              _Pr=Engine::CTag_Finder
+          ]
+  c:\users\ahs\desktop\study\5month\20220628\0628framework\engine\private\textmanager.cpp(13): note: 컴파일 중인 함수 템플릿 인스턴스화 '_InIt std::find_if<std::_Tree_iterator<std::_Tree_val<std::_Tree_simple_types<std::pair<const _Kty,_Ty>>>>,Engine::CTag_Finder>(_InIt,_InIt,_Pr)'에 대한 참조를 확인하십시오.
+          with
+          [
+              _InIt=std::_Tree_iterator<std::_Tree_val<std::_Tree_simple_types<std::pair<const std::wstring,Engine::CTexture *>>>>,
+              _Kty=std::wstring,
+              _Ty=Engine::CTexture *,
+              _Pr=Engine::CTag_Finder
+          ]
+c:\users\ahs\desktop\study\5month\20220628\0628framework\engine\public\engine_functor.h(20): error C2146: 구문 오류: ')'이(가) 'Pair' 식별자 앞에 없습니다.
+  SingleTexture.cpp
+c:\users\ahs\desktop\study\5month\20220628\0628framework\engine\public\engine_function.h(30): error C2039: 'AddRef': 'Engine::tagTexture'의 멤버가 아닙니다.
+  c:\users\ahs\desktop\study\5month\20220628\0628framework\engine\public\engine_struct.h(16): note: 'Engine::tagTexture' 선언을 참조하십시오.
+  c:\users\ahs\desktop\study\5month\20220628\0628framework\engine\private\singletexture.cpp(14): note: 컴파일 중인 함수 템플릿 인스턴스화 'unsigned long Engine::Safe_AddRef<Engine::TEXINFO*>(T &)'에 대한 참조를 확인하십시오.
+          with
+          [
+              T=Engine::TEXINFO *
+          ]
+  코드를 생성하고 있습니다...

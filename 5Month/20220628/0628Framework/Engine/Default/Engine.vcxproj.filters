@@ -1,0 +1,120 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="99.Defines">
+      <UniqueIdentifier>{16c15555-7bf4-4ed0-a719-95c14b196d6c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="01.Device">
+      <UniqueIdentifier>{b940f97c-1999-4e77-8771-159bf303a82b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="01.Device\Graphic">
+      <UniqueIdentifier>{1c0bfffd-511b-48b7-9c24-9eee1cc13e52}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="01.Device\Input">
+      <UniqueIdentifier>{f83a507e-879a-4b66-b627-3f570807fc33}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="01.Device\Sound">
+      <UniqueIdentifier>{f054e0a8-b79a-4bbb-9f41-6109c9560755}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="02.Level">
+      <UniqueIdentifier>{5339a224-101a-45b4-a09f-a41a0f722376}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="02.Level\Manager">
+      <UniqueIdentifier>{75e24d30-ad00-4f2e-900d-ef2440084812}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="98.Base">
+      <UniqueIdentifier>{7cc22037-bb78-42b8-8913-a21671688731}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="00.GameInstance">
+      <UniqueIdentifier>{7797efcf-7c22-4460-b1fa-67c86efe76e9}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="03.Texture">
+      <UniqueIdentifier>{0da64466-00d2-42d9-a523-1dfbaeb352c4}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="03.Texture\Manager">
+      <UniqueIdentifier>{917b1100-1798-41f6-86cc-71ad1c3e23b9}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="03.Texture\Multi">
+      <UniqueIdentifier>{5a67c78d-44e8-4480-91a6-5d70fddca0c3}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="03.Texture\Single">
+      <UniqueIdentifier>{e5f2352a-fe96-4bbe-acb5-46ae333b3b04}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="..\Private\Base.cpp">
+      <Filter>98.Base</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Private\Graphic_Device.cpp">
+      <Filter>01.Device\Graphic</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Private\Level_Manager.cpp">
+      <Filter>02.Level\Manager</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Private\GameInstance.cpp">
+      <Filter>00.GameInstance</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Private\Level.cpp">
+      <Filter>02.Level</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Private\TextManager.cpp">
+      <Filter>03.Texture\Manager</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Private\MultiTexture.cpp">
+      <Filter>03.Texture\Multi</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Private\SingleTexture.cpp">
+      <Filter>03.Texture\Single</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Private\Texture.cpp">
+      <Filter>03.Texture</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="..\Public\Engine_Defines.h">
+      <Filter>99.Defines</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Public\Engine_Function.h">
+      <Filter>99.Defines</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Public\Engine_Functor.h">
+      <Filter>99.Defines</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Public\Engine_Macro.h">
+      <Filter>99.Defines</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Public\Engine_Typedef.h">
+      <Filter>99.Defines</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Public\Engine_Struct.h">
+      <Filter>99.Defines</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Public\Base.h">
+      <Filter>98.Base</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Public\Graphic_Device.h">
+      <Filter>01.Device\Graphic</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Public\Level_Manager.h">
+      <Filter>02.Level\Manager</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Public\GameInstance.h">
+      <Filter>00.GameInstance</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Public\Level.h">
+      <Filter>02.Level</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Public\TextManager.h">
+      <Filter>03.Texture\Manager</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Public\MultiTexture.h">
+      <Filter>03.Texture\Multi</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Public\SingleTexture.h">
+      <Filter>03.Texture\Single</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Public\Texture.h">
+      <Filter>03.Texture</Filter>
+    </ClInclude>
+  </ItemGroup>
+</Project>
