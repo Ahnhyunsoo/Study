@@ -5,6 +5,7 @@ IMPLEMENT_SINGLETON(CComponent_Manager)
 
 
 CComponent_Manager::CComponent_Manager()
+	:m_iNumLevels(0)
 {
 }
 
@@ -26,7 +27,7 @@ HRESULT CComponent_Manager::Add_Prototype(_uint iLevelIndex, const _tchar * pPro
 		//m_iNumLevels은 인덱스기때문에 사실상 1이 더적고 iLevelIndex가 m_iNumLevels이상이라는건 1더크다는뜻 즉 범위가벗어남
 		return E_FAIL; 
 
-	if (Find_Component(iLevelIndex, pPrototypeTag) == nullptr) //해당하는 컴포넌트를 찾지못했다면 함수종료
+	if (Find_Component(iLevelIndex, pPrototypeTag) != nullptr) //해당하는 컴포넌트를 찾지못했다면 함수종료
 		return E_FAIL;
 
 	m_pPrototypes[iLevelIndex].emplace(pPrototypeTag, pPrototype); // 찾았다면 map에 해당태그와 컴포넌트를 추가

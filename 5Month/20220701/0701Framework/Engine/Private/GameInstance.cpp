@@ -30,6 +30,10 @@ HRESULT CGameInstance::Initialize_Engine(_uint iNumLevels, const GRAPHICDESC& Gr
 	if (FAILED(m_pObject_Manager->Reserve_Container(iNumLevels)))
 		return E_FAIL;
 
+	//인자로 받은 레벨의 갯수만큼 map을 동적할당해줌
+	if (FAILED(m_pComponent_Manager->Reserve_Container(iNumLevels)))
+		return E_FAIL;
+
 	return S_OK;
 }
 
