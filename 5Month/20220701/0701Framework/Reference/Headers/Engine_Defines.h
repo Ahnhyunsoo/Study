@@ -2,6 +2,7 @@
 //이 헤더는 API때 Include헤더와 매우 유사함. 필요한 헤더들을 모두 포함해둔다.
 //실제 cpp에서는 이 Engine_Defines만 포함해주면 이 안에 정의된 헤더들을 모두 포함하는 기능이다. 매우간편
 #pragma warning (disable : 4005) //에러코드를 무시하는 pragma 쌤이 이것말고는 쓰지말라고 경고함 그냥 이런거다 하고 패스
+#pragma warning (disable : 4251) //이것또한 쌤이 포함한코드
 
 #include <d3d9.h>
 #include <d3dx9.h>

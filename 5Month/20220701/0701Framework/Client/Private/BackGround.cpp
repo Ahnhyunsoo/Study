@@ -1,8 +1,9 @@
 #include "stdafx.h"
 #include "..\Public\BackGround.h"
+#include "GameInstance.h"
 
 CBackGround::CBackGround(LPDIRECT3DDEVICE9 pGraphic_Device)
-	: CGameObject(pGraphic_Device)
+	: CGameObject(pGraphic_Device), m_pRendererCom(nullptr)
 {
 }
 
@@ -27,6 +28,15 @@ HRESULT CBackGround::Initialize(void * pArg)
 		//자세한건 구글링
 	}
 
+	CGameInstance* pGameInstance = CGameInstance::Get_Instance();
+	Safe_AddRef(pGameInstance);
+	//CComponent 즉 부모를 리턴받기때문에 형변환 해줘야함
+	m_pRendererCom = (CRenderer*)pGameInstance->Clone_Component(LEVEL_STATIC, TEXT("Prototype_Component_Renderer"));
+	if (m_pRendererCom == nullptr)
+		return E_FAIL;
+
+	Safe_Release(pGameInstance);
+
 	return S_OK;
 }
 
@@ -37,7 +47,8 @@ void CBackGround::Tick(_float fTimeDelta)
 
 void CBackGround::LateTick(_float fTimeDelta)
 {
-
+	m_pRendererCom->Add_RenderGroup(CRenderer::RENDER_PRIORITY, this);
+	//CRenderer 함수내에 Add_RenderGroup을 호출하여 인자로 가장먼저 그려진다는 enum값과 자기자신을 넣어준다.
 }
 
 HRESULT CBackGround::Render()
@@ -75,5 +86,7 @@ CGameObject * CBackGround::Clone(void* pArg)
 void CBackGround::Free()
 {
 	__super::Free();
+
+	Safe_Release(m_pRendererCom); //삭제될 때 컴포넌트 객체도 Release해준다.
 }
 

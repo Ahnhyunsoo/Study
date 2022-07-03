@@ -24,13 +24,27 @@ is a 를 상속이라부르고 has a 를 포함이라 부르지만
 둘다 상속의 방법이다. 상속이란 자신의 메모리안에 상속받은 클래스를 할당하는 행위이다.
 */
 
+//이 클래스는 모든 컴포넌트들이 상속받아야하는 클래스이다.
+
 BEGIN(Engine)
 
 class ENGINE_DLL CComponent abstract : public CBase
 {
+protected:
+	CComponent(LPDIRECT3DDEVICE9 pGraphic_Device); //장치를 저장하기위한 생성자
+	CComponent(const CComponent& rhs); // 사본을 생성하기위한 생성자
+	virtual ~CComponent() = default;
+
 public:
-	CComponent();
-	virtual ~CComponent();
+	virtual HRESULT Initialize_Prototype(); // 원형객체의 초기화함수
+	virtual HRESULT Initialize(void* pArg); //사본객체의 초기화함수
+
+protected:
+	LPDIRECT3DDEVICE9 m_pGraphic_Device; // 장치를 저장할 변수
+
+public:
+	virtual CComponent* Clone(void* pArg) = 0; // 컴포넌트의 복사함수 순수가상함수로 만들어둔다.
+	virtual void Free() override;
 };
 
 END

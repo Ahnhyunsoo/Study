@@ -31,6 +31,15 @@
     <Filter Include="00.GameInstance">
       <UniqueIdentifier>{3adfd2cf-df4f-4ffe-9797-065b8cf8a43d}</UniqueIdentifier>
     </Filter>
+    <Filter Include="04.Components">
+      <UniqueIdentifier>{4f88997a-03cd-41e2-bb5e-9e21e0eb60d1}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="04.Components\Manager">
+      <UniqueIdentifier>{fe016948-a773-4ddf-939b-d30d708bddbc}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="04.Components\Renderer">
+      <UniqueIdentifier>{e92b220e-cf92-441e-be23-5b3f6dedd01b}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\Private\Base.cpp">
@@ -58,6 +67,12 @@
       <Filter>00.GameInstance</Filter>
     </ClCompile>
     <ClCompile Include="..\Private\Component.cpp" />
+    <ClCompile Include="..\Private\Component_Manager.cpp">
+      <Filter>04.Components\Manager</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Private\Renderer.cpp">
+      <Filter>04.Components\Renderer</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\Public\Base.h">
@@ -103,5 +118,11 @@
       <Filter>00.GameInstance</Filter>
     </ClInclude>
     <ClInclude Include="..\Public\Component.h" />
+    <ClInclude Include="..\Public\Component_Manager.h">
+      <Filter>04.Components\Manager</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Public\Renderer.h">
+      <Filter>04.Components\Renderer</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>

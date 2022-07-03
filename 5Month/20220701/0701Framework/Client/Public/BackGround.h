@@ -3,6 +3,10 @@
 #include "Client_Defines.h"
 #include "GameObject.h"
 
+BEGIN(Engine)
+class CRenderer;
+END
+
 BEGIN(Client)
 //이클래스들의 함수들은 Engine의 GameObject클래스를 모두 상속받는다.
 //GameObject클래스의 헤더를 한번 보고오는걸 추천
@@ -28,6 +32,9 @@ public:
 
 private:
 	BACKDESC				m_BackDesc;
+
+private:
+	CRenderer* m_pRendererCom;
 
 public:
 	static CBackGround* Create(LPDIRECT3DDEVICE9 pGraphic_Device);

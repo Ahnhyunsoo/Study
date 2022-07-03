@@ -2,6 +2,7 @@
 #include "Graphic_Device.h"
 #include "Level_Manager.h"
 #include "Object_Manager.h"
+#include "Component_Manager.h"
 
 /* 클라이언트로 보여주기위한 가장 대표적인 클래스이다.  */
 /* 각종 매니져클래스들의 주요함수를 클라로 보여준다.  */
@@ -44,11 +45,17 @@ public:
 	HRESULT Add_Prototype(const _tchar* pPrototypeTag, class CGameObject* pPrototype);
 	HRESULT Add_GameObjectToLayer(const _tchar* pPrototypeTag, _uint iLevelIndex, const _tchar* pLayerTag, void* pArg = nullptr);
 
+public: 
+	//Component_Manager에 있는 함수들을 호출하는 역할을함
+	HRESULT Add_Prototype(_uint iLevelIndex, const _tchar* pPrototypeTag, class CComponent* pPrototype);
+	class CComponent* Clone_Component(_uint iLevelIndex, const _tchar* pPrototypeTag, void* pArg = nullptr);
+
 private:
 	//클래스내에 접근해서 함수를 호출해야하기 때문에 객체를 저장할 포인터변수를 선언함.
 	CGraphic_Device*				m_pGraphic_Device;
 	CLevel_Manager*					m_pLevel_Manager;
 	CObject_Manager*				m_pObject_Manager;
+	CComponent_Manager*				m_pComponent_Manager;
 
 public:
 	static void Release_Engine(); //매우 중요함 cpp에서 설명

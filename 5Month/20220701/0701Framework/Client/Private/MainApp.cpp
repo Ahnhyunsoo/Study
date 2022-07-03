@@ -29,6 +29,9 @@ HRESULT CMainApp::Initialize()
 	if (FAILED(m_pGameInstance->Initialize_Engine(LEVEL_END, GraphicDesc, &m_pGraphic_Device)))
 		return E_FAIL;
 
+	if (FAILED(Ready_Prototype_Component()))// Component들을 준비한다.
+		return E_FAIL;
+
 	//레벨을 변경하는함수 인자로 변경할 레벨을 넣어준다.
 	if (FAILED(Open_Level(LEVEL_LOGO)))
 		return E_FAIL;
@@ -53,6 +56,8 @@ HRESULT CMainApp::Render()
 
 	m_pGameInstance->Render_Begin();
 
+	m_pRenderer->Draw(); //Renderer의 Draw호출 모든 오브젝트들의 랜더링이 이루어진다.
+
 	m_pGameInstance->Render_Level();
 
 	m_pGameInstance->Render_End();
@@ -75,6 +80,27 @@ HRESULT CMainApp::Open_Level(LEVEL eLevelID)
 	return S_OK;
 }
 
+HRESULT CMainApp::Ready_Prototype_Component()
+{
+	if (nullptr == m_pGameInstance)
+		return E_FAIL;
+
+	//Component_Manager의 Add_Prototype함수를 호출해 원형객체를 탐색, 만약 탐색에 실패했다면 새로 컴포넌트를 생성해준다.
+	if (FAILED(m_pGameInstance->Add_Prototype(LEVEL_STATIC, TEXT("Prototype_Component_Renderer"),
+		m_pRenderer = CRenderer::Create(m_pGraphic_Device))))
+		return E_FAIL;
+
+	Safe_AddRef(m_pRenderer);
+
+	return S_OK;
+}
+
+HRESULT CMainApp::Ready_Prototype_GameObject()
+{
+
+	return S_OK;
+}
+
 CMainApp * CMainApp::Create()
 {
 	CMainApp*		pInstance = new CMainApp();
@@ -91,7 +117,8 @@ CMainApp * CMainApp::Create()
 void CMainApp::Free()
 {
 	Safe_Release(m_pGameInstance);
-
+	Safe_Release(m_pRenderer);
+	Safe_Release(m_pGraphic_Device);
 	CGameInstance::Release_Engine();
 
 }
