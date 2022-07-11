@@ -1,10 +1,10 @@
 #pragma once
 
-namespace Engine
+namespace Engine 
 {
 	typedef struct tagGraphicDesc //디바이스장치 초기화할 때 넘기는 인자들을 담아놓기위한 구조체
 	{
-		enum WINMODE { MODE_FULL, MODE_WIN, MODE_END };
+		enum WINMODE {MODE_FULL,MODE_WIN,MODE_END};
 
 		HWND hWnd; //윈도우 핸들
 		unsigned int iWinSizeX; // 윈도우 X 사이즈

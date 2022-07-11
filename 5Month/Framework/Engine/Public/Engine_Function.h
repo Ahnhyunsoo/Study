@@ -42,8 +42,8 @@ namespace Engine
 		{
 			dwRefCnt = Temp->Release(); //인자로받은 객체의 Release를 호출한 후 변수에 저장
 			Temp = nullptr; //nullptr을 해주는 이유는 Release가 호출된 시점이 
-							//호출한 객체를 삭제하는 시점이기 때문이다.
-							//즉 더이상 호출한 객체에서 참조를 하지 않기 때문에 댕글리 방지를 위해 nullptr로 초기화해준다.
+			//호출한 객체를 삭제하는 시점이기 때문이다.
+			//즉 더이상 호출한 객체에서 참조를 하지 않기 때문에 댕글리 방지를 위해 nullptr로 초기화해준다.
 		}
 		return dwRefCnt;	//저장한 래퍼런스카운트를 리턴
 	}
