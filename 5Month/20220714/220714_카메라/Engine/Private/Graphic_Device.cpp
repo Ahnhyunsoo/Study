@@ -60,7 +60,7 @@ HRESULT CGraphic_Device::InitDevice(HWND hWnd, _uint iWinSizeX, _uint iWinSizeY,
 		MSG_BOX(L"m_pFont Failed");
 		return E_FAIL;
 	}
-
+	
 	*ppOut = m_pDevice;
 
 	Safe_AddRef(m_pDevice);

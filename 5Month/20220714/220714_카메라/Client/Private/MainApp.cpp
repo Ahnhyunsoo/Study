@@ -63,7 +63,7 @@ HRESULT CMainApp::Render()
 
 	m_pRenderer->Draw();
 
-	m_pGameInstance->Render_Level();
+	//m_pGameInstance->Render_Level();
 
 	m_pGameInstance->Render_End();
 
