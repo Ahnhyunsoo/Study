@@ -9,7 +9,7 @@ Mp
 
 전체Exp
 Exp
-
+1
 Gold
 
 Level
